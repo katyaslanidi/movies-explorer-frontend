@@ -1,6 +1,6 @@
 .footer {
     margin: 0;
-    padding: 79px 0 0;
+    padding: 79px 79px 0 79px;
     font-style: normal;
     background-color: #202020;
 }
@@ -23,7 +23,6 @@
     color: #FFFFFF;
     font-size: 13px;
     line-height: 16px;
-    /* padding: 19px 0; */
 }
 
 .footer__year {
@@ -38,8 +37,4 @@
     gap: 20px;
     padding: 0;
     list-style: none;
-}
-
-.footer__link {
-
 }
