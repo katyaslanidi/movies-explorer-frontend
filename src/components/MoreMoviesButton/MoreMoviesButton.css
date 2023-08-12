@@ -1,0 +1,28 @@
+.more-movies {
+    background-color: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 166px;
+    padding: 0 70px;
+    margin: 0;
+}
+
+.more-movies__button {
+    color: #fff;
+    background-color: #2F2F2F;
+    height: 36px;
+    max-width: 1140px;
+    width: 100%;
+    border: none;
+    font-size: 12px;
+    font-weight: 200;
+    font-style: normal;
+    text-align: center;
+    cursor: pointer;
+}
+
+.more-movies__button_hidden {
+    background-color: #202020;
+    cursor: default;
+}

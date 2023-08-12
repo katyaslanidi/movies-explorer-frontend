@@ -17,8 +17,9 @@ function SearchForm() {
                     />
                     <button type='submit' className='search-form__button' />
                 </fieldset>
+                <FilterCheckbox />
             </form>
-            <FilterCheckbox />
+            {/* <FilterCheckbox /> */}
         </section>
     );
 }

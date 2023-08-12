@@ -1,0 +1,28 @@
+.movie-card__save-button {
+    background-image: url('../../images/like-icon.svg');
+    background-color: #222222;
+    border: none;
+    width: 14px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.movie-card__save-button_liked {
+    background-image: url('../../images/liked-icon.svg');
+}
+
+.movie-card__save-button_delete {
+    /* background-image: url('../../images/delete-icon.svg'); */
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    width: 7px;
+    height: 7px;
+    background-color: #222222;
+    cursor: pointer;
+}
+
+.movie-card__save-button_delete:hover {
+    background-image: url('../../images/delete-icon.svg');
+}
