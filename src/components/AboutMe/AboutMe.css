@@ -22,13 +22,15 @@
 }
 
 .about-me__container {
-    display: grid;
-    grid-template-columns: 600px 270px;
-    gap: 270px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1140px;
+    width: 100%;
 }
 
 .about-me__content {
     color: #fff;
+    max-width: 600px;
 }
 
 .about-me__content_title {

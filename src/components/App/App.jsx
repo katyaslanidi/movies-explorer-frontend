@@ -1,64 +1,26 @@
-// import './App.css';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Route, Routes } from "react-router-dom";
 import './App.css';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import SearchForm from '../SearchForm/SearchForm';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import MoreMoviesButton from '../MoreMoviesButton/MoreMoviesButton';
-import { moviesArr, moviesSavedArr } from '../../utils/constants';
-// import Promo from '../Promo/Promo';
-// import NavTab from '../NavTab/NavTab';
-// import AboutProject from '../AboutProject/AboutProject'
-// import Techs from '../Techs/Techs';
-// import AboutMe from '../AboutMe/AboutMe';
-// import Portfolio from '../Portfolio/Portfolio';
+import Main from '../../pages/Main/Main';
+import Movies from '../../pages/Movies/Movies';
+import SavedMovies from '../../pages/SavedMovies/SavedMovies';
+import ProfilePage from '../../pages/Profile/Profile';
+import Register from '../../pages/Register/Register';
+import Login from '../../pages/Login/Login';
+import NotFound from '../../pages/NotFound/NotFound';
 
 function App() {
-  const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    setTimeout(() => {
-      setMovies(moviesSavedArr)
-    }, 1000)
-  }, [])
-
-  // const arr = Object.keys(moviesArr)
-
-  return ( 
+  return (
     <div className='page'>
-
-      {/* страница savedmovies */}
-      <Header />
-      <SearchForm />
-      <MoviesCardList
-        movies={movies}
-        saved={true}
-      />
-      <MoreMoviesButton
-        hasMoreMovies={false}
-      />
-
-      {/* страница movies */}   
-      {/* <Header />
-      <SearchForm />
-      <MoviesCardList
-        movies={movies}
-        saved={false}
-      />
-      <MoreMoviesButton 
-        hasMoreMovies={true}
-      /> */}
-
-
-      {/* страница main */}
-      {/* <Promo />
-      <NavTab />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
-      <Portfolio /> */}
-
-      <Footer />
+      <Routes>
+        <Route path='/' element={<Main />} />
+        <Route path='/movies' element={<Movies />} />
+        <Route path='/saved-movies' element={<SavedMovies />} />
+        <Route path='/profile' element={<ProfilePage />} />
+        <Route path='/signup' element={<Register />} />
+        <Route path='/signin' element={<Login />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
     </div>
   );
 }
