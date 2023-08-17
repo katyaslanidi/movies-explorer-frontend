@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: flex-start;
     padding: 0 70px 171px;
+    cursor: default;
 }
 
 .portfolio__title {
@@ -37,4 +38,10 @@
     font-size: 30px;
     line-height: 50px;
     letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 690px) {
+    .portfolio {
+        padding: 0 18px 171px;
+    }
 }

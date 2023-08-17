@@ -1,0 +1,18 @@
+.burger-button {
+    border: none;
+    background-color: #202020;
+    background-image: url('../../images/burger-button.svg');
+    width: 44px;
+    height: 44px;
+    display: none;
+}
+
+.burger-button_main {
+    background-color: #073042;
+}
+
+@media screen and (max-width: 768px) {
+    .burger-button {
+        display: flex;
+    }
+}

@@ -26,3 +26,15 @@
     background-color: #202020;
     cursor: default;
 }
+
+@media screen and (max-width: 1140px) {
+    .more-movies{
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .more-movies{
+        padding: 0 10px;
+    }
+}

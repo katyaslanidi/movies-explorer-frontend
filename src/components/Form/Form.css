@@ -6,6 +6,7 @@
     min-height: 700px;
     width: 100%;
     gap: 40px;
+    cursor: default;
 }
 
 .form__logo {
@@ -59,6 +60,16 @@
     padding: 0 4px;
 }
 
+.form__input_error {
+    color: #EE3465;
+}
+
+.form__input-error {
+    width: 396px;
+    margin-top: 10px;
+    color: #EE3465;
+}
+
 .form__button {
     color: #fff;
     font-size: 14px;
@@ -70,6 +81,7 @@
     border: none;
     border-radius: 3px;
     margin-top: 70px;
+    cursor: pointer;
 }
 
 .form__redirect {
@@ -77,9 +89,35 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 200;
+    text-decoration: none;
 }
 
 .form__redirect_link {
     color: #4285F4;
     margin-left: 6px;
+}
+
+@media screen and (max-width: 500px) {
+    .form__logo {
+        padding: 0;
+        margin-top: 56px;
+    }
+    .form__title {
+        text-align: center;
+    }
+    .form__input {
+        width: 260px;
+    }
+    .form__input-error {
+        width: 260px;
+    }
+    .form__button {
+        margin-top: 154px;
+        width: 260px;
+    }
+    .form__redirect {
+        font-size: 12px;
+        width: 260px;
+        text-align: center;
+    }
 }

@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    cursor: default;
 }
 
 .cards__list {
@@ -18,4 +19,22 @@
 
 .cards__list_item {
     list-style: none;
+}
+
+@media screen and (max-width: 1140px) {
+    .cards__list {
+        grid-template-columns: repeat(2, 364px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .cards__list {
+        grid-template-columns: repeat(1, 364px);
+    } 
+}
+
+@media screen and (max-width: 370px) {
+    .cards__list {
+        grid-template-columns: repeat(1, 300px);
+    } 
 }

@@ -19,7 +19,6 @@ function SearchForm() {
                 </fieldset>
                 <FilterCheckbox />
             </form>
-            {/* <FilterCheckbox /> */}
         </section>
     );
 }

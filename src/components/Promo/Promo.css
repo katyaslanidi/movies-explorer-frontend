@@ -26,4 +26,12 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: default;
+}
+
+@media screen and (max-width: 652px) {
+    .promo__title {
+        font-size: 31px;
+        max-width: 300px;
+    }
 }

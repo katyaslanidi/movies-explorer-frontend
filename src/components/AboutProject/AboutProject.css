@@ -6,6 +6,7 @@
     align-items: center;
     flex-direction: column;
     padding: 0 70px;
+    cursor: default;
 }
 
 .about-project__title {
@@ -79,4 +80,29 @@
     align-items: center;
     justify-content: center;
     color: #8B8B8B;
+}
+
+@media screen and (max-width: 441px) {
+    .about-project {
+        padding: 0 18px;
+        gap: 60px;
+    }
+    .about-project__title {
+        margin-top: 69px;
+    }
+    .about-project__container {
+        grid-template-columns: 284px;
+        grid-template-rows: 54px 60px 54px 60px;
+        grid-auto-flow: row;
+        /* gap: 16px; */
+    }
+    .about-project__container_title {
+        font-size: 18px;
+        margin: 0;
+    }
+    .about-project__container_text {
+        font-size: 11px;
+        margin-top: 16px;
+        margin-bottom: 56px;
+    }
 }

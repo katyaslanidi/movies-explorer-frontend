@@ -10,6 +10,7 @@ function Register() {
                 buttonText='Зарегистрироваться'
                 redirectText='Уже зарегистрированы?'
                 linkText='Войти'
+                link='/signin'
             />
         </main>
     );

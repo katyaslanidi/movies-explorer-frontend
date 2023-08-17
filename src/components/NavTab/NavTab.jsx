@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 import './NavTab.css';
 
 function NavTab() {
@@ -6,13 +7,13 @@ function NavTab() {
         <section className='navtab'>
             <ul className='navtab__links'>
                 <li>
-                    <p className='navtab__link'>О проекте</p>
+                    <Link to='about-project' className='navtab__link'>О проекте</Link>
                 </li>
                 <li>
-                    <p className='navtab__link'>Технологии</p>
+                    <Link to='techs' className='navtab__link'>Технологии</Link>
                 </li>
                 <li>
-                    <p className='navtab__link'>Студент</p>
+                    <Link to='about-me' className='navtab__link'>Студент</Link>
                 </li>
             </ul>
         </section>

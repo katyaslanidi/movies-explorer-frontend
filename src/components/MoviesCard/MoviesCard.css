@@ -50,3 +50,12 @@
     font-weight: 200;
     font-style: normal;
 }
+
+@media screen and (max-width: 370px) {
+    .movie-card {
+        height: 237px;
+    }
+    .movie-card__image {
+        min-height: 168px;
+    }
+}

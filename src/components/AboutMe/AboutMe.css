@@ -1,11 +1,12 @@
 .about-me {
-    min-height: 608px;
+    min-height: 600px;
     background-color: #202020;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 0 70px;
+    cursor: default;
 }
 
 .about-me__title {
@@ -67,7 +68,36 @@
 }
 
 .about-me__container_image {
-    max-width: 270px;
-    min-height: 327px;
+    width: 270px;
+    height: 327px;
     border-radius: 12px;
+}
+
+@media screen and (max-width: 768px) {
+    .about-me {
+        padding: 0 14px;
+    }
+    .about-me__title {
+        margin-top: 69px;
+    }
+
+    .about-me__container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .about-me__content {
+        max-width: 364px;
+    }
+
+    .about-me__container_image {
+        width: 255px;
+        height: 308px;
+    }
+
+    .about-me__container_image {
+        width: 292px;
+        height: 352px;
+    }
+
 }
