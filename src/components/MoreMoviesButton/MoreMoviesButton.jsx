@@ -4,12 +4,14 @@ import './MoreMoviesButton.css';
 function MoreMoviesButton(props) {
     return (
         <section className='more-movies'>
-            <button 
+            <button
                 className={`
                     more-movies__button
-                    ${props.hasMoreMovies ? '': 'more-movies__button_hidden'}
-                `}>
-            {`${props.hasMoreMovies ? 'Ещё': ''}`}
+                    ${props.hasMoreMovies ? '' : 'more-movies__button_hidden'}
+                `}
+                type='button'
+            >
+                {`${props.hasMoreMovies ? 'Ещё' : ''}`}
             </button>
         </section>
     );

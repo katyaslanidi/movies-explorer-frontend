@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Profile.css';
 
 function Profile() {
     return (
         <section className='profile'>
-            <h2 className='profile__title'>Привет, Виталий!</h2>
+            <h1 className='profile__title'>Привет, Виталий!</h1>
             <form name='profile' className='profile__form'>
                 <fieldset className='profile__form_item'>
                     <label htmlFor='name' className='profile__form_label'>
@@ -33,7 +34,7 @@ function Profile() {
                     </label>
                 </fieldset>
                 <button type='submit' className='profile__button'>Редактировать</button>
-                <button type='button' className='profile__button profile__button_signout'>Выйти из аккаунта</button>
+                <Link to='/' className='profile__button profile__button_signout'>Выйти из аккаунта</Link>
             </form>
         </section>
     );

@@ -6,24 +6,27 @@ import logo from '../../images/logo.svg';
 function Form({ name, title, buttonText, redirectText, linkText, link }) {
     return (
         <section className='form'>
-            <img className='form__logo' src={logo} alt='logo' />
-            <h2 className='form__title'>{title}</h2>
+            <Link to='/' title='На главную'>
+                <img className='form__logo' src={logo} alt='logo' />
+            </Link>
+            <h1 className='form__title'>{title}</h1>
             <form name={name} className='form__container'>
                 <fieldset className='form__item'>
-                    <label htmlFor='name' className='form__label'>
-                        Имя
-                        <input
-                            id='name'
-                            type='text'
-                            name='name'
-                            required
-                            minLength='2'
-                            maxLength='30'
-                            placeholder='Виталий'
-                            className='form__input form__input_error'
-                        />
-                        <span className='form__input-error'>Что-то пошло не так...</span>
-                    </label>
+                    {name === 'signup' ?
+                        <label htmlFor='name' className='form__label'>
+                            Имя
+                            <input
+                                id='name'
+                                type='text'
+                                name='name'
+                                required
+                                minLength='2'
+                                maxLength='30'
+                                placeholder='Виталий'
+                                className='form__input form__input_error'
+                            />
+                            <span className='form__input-error'>Что-то пошло не так...</span>
+                        </label> : ''}
                     <label htmlFor='name' className='form__label'>
                         E-mail
                         <input
@@ -43,6 +46,8 @@ function Form({ name, title, buttonText, redirectText, linkText, link }) {
                             type='password'
                             name='password'
                             required
+                            minLength='2'
+                            maxLength='30'
                             placeholder='••••••••••••••'
                             className='form__input'
                         />

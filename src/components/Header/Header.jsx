@@ -9,20 +9,20 @@ import OverflowMoviesNav from '../OverflowMoviesNav/OverflowMoviesNav';
 function Header({ isLoggedIn }) {
     const currentPath = useLocation().pathname;
 
-    const [ isOverflowActive, setIsOverflowActive ] = useState(false);
+    const [isOverflowActive, setIsOverflowActive] = useState(false);
 
     function handleBurgerBtnClick() {
-      setIsOverflowActive(!isOverflowActive);
+        setIsOverflowActive(!isOverflowActive);
     }
 
     return (
         <>
-            <section className={`
+            <header className={`
                 header 
-                ${currentPath === '/movies' 
-                || currentPath === '/saved-movies'
-                || currentPath === '/profile' 
-                ? 'header__movies' : ''}`}
+                ${currentPath === '/movies'
+                    || currentPath === '/saved-movies'
+                    || currentPath === '/profile'
+                    ? 'header__movies' : ''}`}
             >
                 <Link to='/' title='На главную'>
                     <img className='header__logo' src={headerLogo} alt="logo" />
@@ -30,22 +30,32 @@ function Header({ isLoggedIn }) {
                 {
                     isLoggedIn ? (
                         <>
-                        <nav className='header__nav header__nav_movies'>
-                            <ul className='header__list header__list-movies'>
-                                <li>
-                                    <Link to='/movies' className='header__list-movies_link'>Фильмы</Link>
-                                </li>
-                                <li>
-                                    <Link to='/saved-movies' className='header__list-movies_link'>Сохранённые фильмы</Link>
-                                </li>
-                            </ul>
-                            <Link to='/profile' className='header__account-link'>
-                                Аккаунт
-                                <img className='header__account-link_icon' src={accountIcon} alt='account icon' />
-                            </Link>
-                        </nav>
-                        <BurgerButton onClick={handleBurgerBtnClick} />
-                        <OverflowMoviesNav isActive={isOverflowActive} onClick={handleBurgerBtnClick} />
+                            <nav className='header__nav header__nav_movies'>
+                                <ul className='header__list header__list-movies'>
+                                    <li>
+                                        <Link to='/movies' className={`
+                                            header__list-movies_link
+                                            ${currentPath === '/movies' ? 'header__list-movies_link_active' : ''}
+                                        `}>
+                                            Фильмы
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/saved-movies' className={`
+                                            header__list-movies_link
+                                            ${currentPath === '/saved-movies' ? 'header__list-movies_link_active' : ''}
+                                        `}>
+                                            Сохранённые фильмы
+                                        </Link>
+                                    </li>
+                                </ul>
+                                <Link to='/profile' className='header__account-link'>
+                                    Аккаунт
+                                    <img className='header__account-link_icon' src={accountIcon} alt='account icon' />
+                                </Link>
+                            </nav>
+                            <BurgerButton onClick={handleBurgerBtnClick} />
+                            <OverflowMoviesNav isActive={isOverflowActive} onClick={handleBurgerBtnClick} />
                         </>
                     ) : (
                         <nav className='header__nav'>
@@ -60,7 +70,7 @@ function Header({ isLoggedIn }) {
                         </nav>
                     )
                 }
-            </section>
+            </header>
         </>
     );
 }

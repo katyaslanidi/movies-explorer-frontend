@@ -9,9 +9,9 @@ import { moviesSavedArr } from '../../utils/constants';
 function Movies() {
     const [movies, setMovies] = useState([]);
     useEffect(() => {
-      setTimeout(() => {
-        setMovies(moviesSavedArr)
-      }, 1000)
+        setTimeout(() => {
+            setMovies(moviesSavedArr)
+        }, 1000)
     }, [])
 
     return (

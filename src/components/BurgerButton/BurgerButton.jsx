@@ -11,6 +11,7 @@ function BurgerButton({ onClick }) {
                     burger-button
                     ${currentPath === '/' ? 'burger-button_main' : ''}`}
                 onClick={onClick}
+                type='button'
             />
         </>
     );

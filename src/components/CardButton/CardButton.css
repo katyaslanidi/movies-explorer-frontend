@@ -5,6 +5,7 @@
     width: 14px;
     height: 12px;
     cursor: pointer;
+    margin-right: 7px;
 }
 
 .movie-card__save-button_liked {
@@ -12,7 +13,6 @@
 }
 
 .movie-card__save-button_delete {
-    /* background-image: url('../../images/delete-icon.svg'); */
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

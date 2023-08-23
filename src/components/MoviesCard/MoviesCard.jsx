@@ -10,7 +10,7 @@ function MoviesCard({ movie, saved }) {
             </a>
             <div className='movie-card__title'>
                 <h2 className='movie-card__name'>{movie.name}</h2>
-                <CardButton saved={saved} isSaved={movie.isSaved}/>
+                <CardButton saved={saved} isSaved={movie.isSaved} />
             </div>
             <p className='movie-card__duration'>{movie.duration}</p>
         </article>

@@ -29,7 +29,7 @@
 }
 
 .header__nav_movies {
-    max-width: 1102px;
+    max-width: 100%;
     justify-content: space-between;
 }
 
@@ -60,6 +60,14 @@
     text-decoration: none;
 }
 
+.header__list-movies_link:hover {
+    opacity: 0.6;
+}
+
+.header__list-movies_link_active {
+    font-weight: 500;
+}
+
 .header__account-link {
     display: flex;
     align-items: center;
@@ -67,15 +75,18 @@
     font-size: 13px;
     font-style: normal;
     line-height: 12px;
-    width: 100px;
     cursor: pointer;
     text-decoration: none;
+}
+
+.header__account-link:hover {
+    opacity: 0.8;
 }
 
 .header__account-link_icon {
     width: 26px;
     height: 26px;
-    margin-left: 21px;
+    margin-left: 10px;
 }
 
 .header__list_link {
@@ -106,5 +117,11 @@
     }
     .header__nav_movies {
         display: none;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .header {
+        padding: 0 14px;
     }
 }

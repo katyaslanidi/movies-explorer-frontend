@@ -3,9 +3,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 166px;
+    min-height: 130px;
     padding: 0 70px;
-    margin: 0;
+    margin-bottom: 44px;
 }
 
 .more-movies__button {
@@ -20,6 +20,10 @@
     font-style: normal;
     text-align: center;
     cursor: pointer;
+}
+
+.more-movies__button:hover {
+    opacity: 0.6;
 }
 
 .more-movies__button_hidden {

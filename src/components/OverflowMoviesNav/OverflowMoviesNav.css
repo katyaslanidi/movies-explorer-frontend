@@ -22,23 +22,28 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-top: 38px;
+    margin-top: 22px;
 }
 
 .overflow__close-icon_button {
     background-color: #202020;
     background-image: url('../../images/close-icon.svg');
     background-size: cover;
-    margin-right: 32px;
-    width: 22px;
-    height: 22px;
+    margin-right: 22px;
+    width: 32px;
+    height: 32px;
     border: none;
+    cursor: pointer;
+}
+
+.overflow__close-icon_button:hover {
+    opacity: 0.6;
 }
 
 .overflow__nav {
     width: 100%;
     height: 100%;
-    margin-top: 114px;
+    margin-top: 105px;
     margin-bottom: 122px;
     display: flex;
     flex-direction: column;
@@ -63,10 +68,15 @@
     font-style: normal;
     font-weight: 200;
     text-decoration: none;
+    padding-bottom: 5px;
+}
+
+.overflow__link:hover {
+    opacity: 0.6;
 }
 
 .overflow__link_active {
-    text-decoration: underline;
+    border-bottom: 1px solid #fff;
 }
 
 .overflow__account-link {
@@ -84,8 +94,24 @@
     margin-left: 7px;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
     .overflow {
-        width: 100%;
+        max-width: 320px;
+    }
+    .overflow__close-icon {
+        margin-top: 14px;
+    }
+    .overflow__close-icon_button {
+        margin-right: 14px;
+    }
+    .overflow__nav {
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+    .overflow__list {
+        height: 112px;
+    }
+    .overflow__account-link {
+        width: 78px;
     }
 }

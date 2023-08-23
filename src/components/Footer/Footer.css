@@ -1,6 +1,8 @@
 .footer {
+    display: flex;
+    flex-direction: column;
     margin: 0;
-    padding: 79px 79px 0 79px;
+    padding: 67px 70px;
     font-style: normal;
     background-color: #202020;
 }
@@ -24,6 +26,7 @@
     color: #fff;
     font-size: 13px;
     line-height: 16px;
+    padding-top: 7px;
 }
 
 .footer__year {
@@ -46,17 +49,35 @@
     color: #fff;
 }
 
-@media screen and (max-width: 767px) {
-    .footer {
-        padding: 79px 10px 0 10px;
-    }
+.footer__link:hover {
+    opacity: 0.6;
+}
 
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .footer {
+        padding: 92px 30px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .footer {
+        padding: 15px 10px 0 10px;
+        min-height: 200px;
+    }
+    .footer__title {
+        font-size: 12px;
+    }
     .footer__container {
+        font-size: 12px;
         flex-direction: column-reverse;
     }
-
     .footer__links {
         flex-direction: column;
         align-items: center;
+        margin-top: 20px;
+        gap: 12px;
+    }
+    .footer__year {
+        margin-top: 20px;
     }
 }

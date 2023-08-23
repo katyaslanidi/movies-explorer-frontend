@@ -3,10 +3,10 @@ import { useState } from 'react';
 import './CardButton.css';
 
 function CardButton(props) {
-    const [ isSaved, setIsSaved ] = useState(props.isSaved);
+    const [isSaved, setIsSaved] = useState(props.isSaved);
     const saved = props.saved;
     const handleLikeClick = () => {
-      setIsSaved(!isSaved)
+        setIsSaved(!isSaved)
     }
     const handleDeleteClick = () => {
     }
@@ -14,13 +14,13 @@ function CardButton(props) {
         <>
             {
                 saved ? (
-                    <button 
+                    <button
                         className='movie-card__save-button_delete'
                         type='button'
-                        onClick={handleDeleteClick}    
+                        onClick={handleDeleteClick}
                     ></button>
                 ) : (
-                    <button 
+                    <button
                         className={
                             `movie-card__save-button
                             ${isSaved ? 'movie-card__save-button_liked' : ''}`
