@@ -25,7 +25,7 @@
     margin-top: 22px;
 }
 
-.overflow__close-icon_button {
+.overflow__button {
     background-color: #202020;
     background-image: url('../../images/close-icon.svg');
     background-size: cover;
@@ -36,7 +36,7 @@
     cursor: pointer;
 }
 
-.overflow__close-icon_button:hover {
+.overflow__button:hover {
     opacity: 0.6;
 }
 
@@ -90,7 +90,11 @@
     text-decoration: none;
 }
 
-.overflow__account-link_icon {
+.overflow__account-link:hover {
+    opacity: 0.6;
+}
+
+.overflow__icon {
     margin-left: 7px;
 }
 
@@ -101,7 +105,7 @@
     .overflow__close-icon {
         margin-top: 14px;
     }
-    .overflow__close-icon_button {
+    .overflow__button {
         margin-right: 14px;
     }
     .overflow__nav {

@@ -7,8 +7,8 @@ function Profile() {
         <section className='profile'>
             <h1 className='profile__title'>Привет, Виталий!</h1>
             <form name='profile' className='profile__form'>
-                <fieldset className='profile__form_item'>
-                    <label htmlFor='name' className='profile__form_label'>
+                <fieldset className='profile__item'>
+                    <label htmlFor='name' className='profile__label'>
                         Имя
                         <input
                             id='name'
@@ -18,10 +18,10 @@ function Profile() {
                             minLength='2'
                             maxLength='30'
                             placeholder='Виталий'
-                            className='profile__form_input'
+                            className='profile__input'
                         />
                     </label>
-                    <label htmlFor='email' className='profile__form_label profile__form_label-email'>
+                    <label htmlFor='email' className='profile__label profile__label_email'>
                         E-mail
                         <input
                             id='email'
@@ -29,7 +29,7 @@ function Profile() {
                             name='email'
                             required
                             placeholder='pochta@yandex.ru'
-                            className='profile__form_input'
+                            className='profile__input'
                         />
                     </label>
                 </fieldset>

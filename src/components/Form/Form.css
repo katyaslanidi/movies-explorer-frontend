@@ -17,6 +17,10 @@
     padding-right: 358px;
 }
 
+.form__logo:hover {
+    opacity: 0.6;
+}
+
 .form__title {
     color: #fff;
     font-size: 24px;

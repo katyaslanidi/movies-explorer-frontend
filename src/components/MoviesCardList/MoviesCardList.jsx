@@ -9,7 +9,7 @@ function MoviesCardList({ movies, saved }) {
                 {
                     movies.map((movie, i) => {
                         return (
-                            <li key={i} className='cards__list_item'>
+                            <li key={i} className='cards__item'>
                                 <MoviesCard
                                     movie={movie}
                                     saved={saved}

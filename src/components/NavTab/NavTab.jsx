@@ -7,7 +7,7 @@ function NavTab() {
         <nav className='navtab'>
             <ul className='navtab__links'>
                 <li>
-                    <Link to='about-project' className='navtab__link'>О проекте</Link>
+                    <Link to='about-project' className='navtab__link'>O проекте</Link>
                 </li>
                 <li>
                     <Link to='techs' className='navtab__link'>Технологии</Link>

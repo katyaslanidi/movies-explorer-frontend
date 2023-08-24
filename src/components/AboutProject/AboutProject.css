@@ -37,7 +37,7 @@
     margin-top: 40px;
 }
 
-.about-project__container_title {
+.about-project__subtitle {
     font-weight: 300;
     line-height: 27px;
     letter-spacing: -0.04em;
@@ -45,7 +45,7 @@
     margin: 0; 
 }
 
-.about-project__container_text {
+.about-project__text {
     font-weight: 100;
     line-height: 20px;
     font-size: 14px;
@@ -65,7 +65,7 @@
     margin: 110px 0;
 }
 
-.about-project__time-line_title {
+.about-project__duration {
     background-color: #3DDC84;
     display: flex;
     align-items: center;
@@ -74,12 +74,12 @@
     font-size: 14px;
 }
 
-.about-project__time-line_title-frontend {
+.about-project__duration_frontend {
     background-color: #303030;
     color: #fff;
 }
 
-.about-project__time-line__text {
+.about-project__item {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,10 +102,10 @@
     .about-project__title {
         padding-top: 90px;
     }
-    .about-project__container_title {
+    .about-project__subtitle {
         height: 48px;
     }
-    .about-project__container_text {
+    .about-project__text {
         font-size: 12px;
         line-height: 18px;
         height: 54px;
@@ -133,10 +133,10 @@
         min-height: 280px;
         margin-top: 32px;
     }
-    .about-project__container_title {
+    .about-project__subtitle {
         font-size: 18px;
     }
-    .about-project__container_text {
+    .about-project__text {
         font-size: 11px;
         line-height: 16px;
     }
@@ -144,10 +144,10 @@
         margin-top: 80px;
         grid-template-rows: 35px 5px;
     }
-    .about-project__time-line_title {
+    .about-project__duration {
         font-size: 11px;
     }
-    .about-project__time-line__text {
+    .about-project__item {
         font-size: 11px;
     }
 }

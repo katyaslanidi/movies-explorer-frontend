@@ -12,7 +12,7 @@ function OverflowMoviesNav({ isActive, onClick }) {
                 ${isActive ? 'overflow__active' : ''}`}
         >
             <span className='overflow__close-icon'>
-                <button className='overflow__close-icon_button' onClick={onClick} />
+                <button className='overflow__button' type='button' onClick={onClick} />
             </span>
             <nav className='overflow__nav'>
                 <ul className='overflow__list'>
@@ -37,7 +37,7 @@ function OverflowMoviesNav({ isActive, onClick }) {
                 </ul>
                 <Link to='/profile' className='overflow__account-link'>
                     Аккаунт
-                    <img className='overflow__account-link_icon' src={accountIcon} alt='account icon' />
+                    <img className='overflow__icon' src={accountIcon} alt='Иконка аккаунта' />
                 </Link>
             </nav>
         </section>

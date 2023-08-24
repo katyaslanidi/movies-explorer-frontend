@@ -6,8 +6,8 @@ import logo from '../../images/logo.svg';
 function Form({ name, title, buttonText, redirectText, linkText, link }) {
     return (
         <section className='form'>
-            <Link to='/' title='На главную'>
-                <img className='form__logo' src={logo} alt='logo' />
+            <Link to='/' title='Ha главную'>
+                <img className='form__logo' src={logo} alt='Лого' />
             </Link>
             <h1 className='form__title'>{title}</h1>
             <form name={name} className='form__container'>

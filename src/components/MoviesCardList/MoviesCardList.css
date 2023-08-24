@@ -16,7 +16,7 @@
     margin: 0;
 }
 
-.cards__list_item {
+.cards__item {
     list-style: none;
 }
 
@@ -28,7 +28,7 @@
         grid-template-columns: repeat(2, 339px);
         gap: 30px 30px;
     }
-    .cards__list_item {
+    .cards__item {
         height: 262px;
     }
 }
@@ -41,7 +41,7 @@
         grid-template-columns: repeat(1, 300px);
         gap: 13px;
     }
-    .cards__list_item {
+    .cards__item {
         height: 237px;
     }
 }

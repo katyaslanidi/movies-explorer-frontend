@@ -15,7 +15,7 @@ function CardButton(props) {
             {
                 saved ? (
                     <button
-                        className='movie-card__save-button_delete'
+                        className='movie-card__delete-button'
                         type='button'
                         onClick={handleDeleteClick}
                     ></button>

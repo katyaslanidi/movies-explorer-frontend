@@ -26,7 +26,7 @@
     margin: 0;
 }
 
-.portfolio__list_item {
+.portfolio__item {
     border-bottom: 1px solid #E8E8E8;
     padding: 0 0 19px;
     margin: 0 0 20px;
@@ -49,7 +49,7 @@
     opacity: 0.6;
 }
 
-.portfolio__link_pic {
+.portfolio__pic {
     height: 20px;
     width: 20px;
     padding-right: 6px;
@@ -81,7 +81,7 @@
         font-size: 18px;
         line-height: 28px;
     }
-    .portfolio__link_pic {
+    .portfolio__pic {
         width: 10px;
         height: 10px;
         padding-right: 4px;

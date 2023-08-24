@@ -8,11 +8,15 @@
     margin-right: 7px;
 }
 
+.movie-card__save-button:hover {
+    opacity: 0.8;
+}
+
 .movie-card__save-button_liked {
     background-image: url('../../images/liked-icon.svg');
 }
 
-.movie-card__save-button_delete {
+.movie-card__delete-button {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -23,6 +27,6 @@
     cursor: pointer;
 }
 
-.movie-card__save-button_delete:hover {
+.movie-card__delete-button:hover {
     background-image: url('../../images/delete-icon.svg');
 }

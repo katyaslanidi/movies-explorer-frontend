@@ -18,6 +18,10 @@
     cursor: pointer;
 }
 
+.header__logo:hover {
+    opacity: 0.6;
+}
+
 .header__nav {
     display: flex;
     align-items: baseline;
@@ -42,7 +46,7 @@
     align-items: baseline;
 }
 
-.header__list-movies {
+.header__list_movies {
     display: flex;
     margin: 0;
     padding: 0;
@@ -50,7 +54,7 @@
     margin-left: 44px;
 }
 
-.header__list-movies_link {
+.header__link {
     color: #fff;
     font-size: 13px;
     font-style: normal;
@@ -60,11 +64,11 @@
     text-decoration: none;
 }
 
-.header__list-movies_link:hover {
+.header__link:hover {
     opacity: 0.6;
 }
 
-.header__list-movies_link_active {
+.header__link_active {
     font-weight: 500;
 }
 
@@ -83,13 +87,13 @@
     opacity: 0.8;
 }
 
-.header__account-link_icon {
+.header__icon {
     width: 26px;
     height: 26px;
     margin-left: 10px;
 }
 
-.header__list_link {
+.header__auth-link {
     font-style: normal;
     font-size: 12px;
     font-weight: 500;
@@ -99,7 +103,7 @@
     text-decoration: none;
 }
 
-.header__list_login {
+.header__auth-link_login {
     background-color: #3DDC84;
     border-radius: 3px;
     width: 76px;

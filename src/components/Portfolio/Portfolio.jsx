@@ -7,22 +7,22 @@ function Portfolio() {
         <section className='portfolio'>
             <h2 className='portfolio__title'>Портфолио</h2>
             <ul className='portfolio__list'>
-                <li className='portfolio__list_item'>
+                <li className='portfolio__item'>
                     <a className='portfolio__link' href='https://github.com/katyaslanidi/how-to-learn' target='_blank' rel="noreferrer">
                         Статичный сайт
-                        <img className='portfolio__link_pic' src={linkPic} alt='ссылка' />
+                        <img className='portfolio__pic' src={linkPic} alt='Ссылка на работу' />
                     </a>
                 </li>
-                <li className='portfolio__list_item'>
+                <li className='portfolio__item'>
                     <a className='portfolio__link' href='https://github.com/katyaslanidi/russian-travel' target='_blank' rel="noreferrer">
                         Адаптивный сайт
-                        <img className='portfolio__link_pic' src={linkPic} alt='ссылка' />
+                        <img className='portfolio__pic' src={linkPic} alt='Ссылка на работу' />
                     </a>
                 </li>
-                <li className='portfolio__list_item'>
+                <li className='portfolio__item'>
                     <a className='portfolio__link' href='https://github.com/katyaslanidi/react-mesto-auth' target='_blank' rel="noreferrer">
                         Одностраничное приложение
-                        <img className='portfolio__link_pic' src={linkPic} alt='ссылка' />
+                        <img className='portfolio__pic' src={linkPic} alt='Ссылка на работу' />
                     </a>
                 </li>
             </ul>

@@ -25,25 +25,25 @@ function Header({ isLoggedIn }) {
                     ? 'header__movies' : ''}`}
             >
                 <Link to='/' title='На главную'>
-                    <img className='header__logo' src={headerLogo} alt="logo" />
+                    <img className='header__logo' src={headerLogo} alt="Лого" />
                 </Link>
                 {
                     isLoggedIn ? (
                         <>
                             <nav className='header__nav header__nav_movies'>
-                                <ul className='header__list header__list-movies'>
+                                <ul className='header__list header__list_movies'>
                                     <li>
                                         <Link to='/movies' className={`
-                                            header__list-movies_link
-                                            ${currentPath === '/movies' ? 'header__list-movies_link_active' : ''}
+                                            header__link
+                                            ${currentPath === '/movies' ? 'header__link_active' : ''}
                                         `}>
                                             Фильмы
                                         </Link>
                                     </li>
                                     <li>
                                         <Link to='/saved-movies' className={`
-                                            header__list-movies_link
-                                            ${currentPath === '/saved-movies' ? 'header__list-movies_link_active' : ''}
+                                            header__link
+                                            ${currentPath === '/saved-movies' ? 'header__link_active' : ''}
                                         `}>
                                             Сохранённые фильмы
                                         </Link>
@@ -51,7 +51,7 @@ function Header({ isLoggedIn }) {
                                 </ul>
                                 <Link to='/profile' className='header__account-link'>
                                     Аккаунт
-                                    <img className='header__account-link_icon' src={accountIcon} alt='account icon' />
+                                    <img className='header__icon' src={accountIcon} alt='Иконка аккаунта' />
                                 </Link>
                             </nav>
                             <BurgerButton onClick={handleBurgerBtnClick} />
@@ -61,10 +61,10 @@ function Header({ isLoggedIn }) {
                         <nav className='header__nav'>
                             <ul className='header__list'>
                                 <li>
-                                    <Link to='/signup' className='header__list_link'>Регистрация</Link>
+                                    <Link to='/signup' className='header__auth-link'>Регистрация</Link>
                                 </li>
                                 <li>
-                                    <Link to='/signin' className='header__list_link header__list_login'>Войти</Link>
+                                    <Link to='/signin' className='header__auth-link header__auth-link_login'>Войти</Link>
                                 </li>
                             </ul>
                         </nav>
