@@ -115,6 +115,10 @@
         background-color: #202020;
         padding: 0 18px;
     }
+    .techs__container {
+        min-height: 210px;
+        gap: 10px;
+    }
     .techs__title {
         font-size: 18px;
         margin-top: 125px;
@@ -138,7 +142,7 @@
         margin-bottom: 69px;
         width: 178px;
         gap: 10px 10px;
-        margin-top: -50px;
+        margin-top: -10px;
     }
     .techs__item {
         width: 84px;

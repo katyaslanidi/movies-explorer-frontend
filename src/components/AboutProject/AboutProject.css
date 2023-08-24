@@ -127,7 +127,7 @@
     }
     .about-project__container {
         grid-template-columns: 284px;
-        grid-template-rows: 44px 64px 116px 2px;
+        grid-template-rows: 44px 64px 115px 0;
         grid-auto-flow: row;
         gap: 10px;
         min-height: 280px;
@@ -135,13 +135,14 @@
     }
     .about-project__subtitle {
         font-size: 18px;
+        line-height: 23px;
     }
     .about-project__text {
         font-size: 11px;
         line-height: 16px;
     }
     .about-project__time-line {
-        margin-top: 80px;
+        margin-top: 52px;
         grid-template-rows: 35px 5px;
     }
     .about-project__duration {

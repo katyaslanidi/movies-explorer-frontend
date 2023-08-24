@@ -22,7 +22,7 @@ function Header({ isLoggedIn }) {
                 ${currentPath === '/movies'
                     || currentPath === '/saved-movies'
                     || currentPath === '/profile'
-                    ? 'header__movies' : ''}`}
+                    ? 'header-movies' : ''}`}
             >
                 <Link to='/' title='На главную'>
                     <img className='header__logo' src={headerLogo} alt="Лого" />

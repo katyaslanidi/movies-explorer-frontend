@@ -27,7 +27,7 @@ function Form({ name, title, buttonText, redirectText, linkText, link }) {
                             />
                             <span className='form__input-error'>Что-то пошло не так...</span>
                         </label> : ''}
-                    <label htmlFor='name' className='form__label'>
+                    <label htmlFor='email' className='form__label'>
                         E-mail
                         <input
                             id='email'
@@ -56,7 +56,7 @@ function Form({ name, title, buttonText, redirectText, linkText, link }) {
                 </fieldset>
                 <button type='submit' className='form__button'>{buttonText}</button>
                 <p className='form__redirect'>{redirectText}
-                    <Link to={link} className='form__redirect form__redirect_link'>{linkText}</Link>
+                    <Link to={link} className='form__redirect-link'>{linkText}</Link>
                 </p>
             </form>
         </section>

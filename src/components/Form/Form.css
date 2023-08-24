@@ -116,9 +116,10 @@
     margin-top: 20px;
 }
 
-.form__redirect_link {
+.form__redirect-link {
     color: #4285F4;
     margin-left: 6px;
+    text-decoration: none;
 }
 
 .form__redirect_link:hover {

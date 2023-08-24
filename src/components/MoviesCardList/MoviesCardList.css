@@ -8,6 +8,10 @@
     cursor: default;
 }
 
+.cards-saved {
+    padding: 70px 70px 0;
+}
+
 .cards__list {
     display: grid;
     grid-template-columns: repeat(3, 364px);

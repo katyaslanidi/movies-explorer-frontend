@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     margin: 0;
-    padding: 67px 70px;
+    padding: 67px 70px 6px;
     font-style: normal;
     background-color: #202020;
 }
@@ -55,14 +55,14 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
     .footer {
-        padding: 92px 30px;
+        padding: 30px 30px;
     }
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .footer {
         padding: 15px 10px 0 10px;
-        min-height: 200px;
+        min-height: 175px;
     }
     .footer__title {
         font-size: 12px;
