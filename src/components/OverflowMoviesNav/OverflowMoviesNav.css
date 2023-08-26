@@ -1,0 +1,122 @@
+.overflow {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .3s, opacity .3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background-color: #202020;
+  width: 520px;
+  height: 100%;
+  min-height: 1024px;
+  top: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.overflow__active {
+    opacity: 100;
+    visibility: visible;
+}
+
+.overflow__close-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 22px;
+}
+
+.overflow__button {
+    background-color: #202020;
+    background-image: url('../../images/close-icon.svg');
+    background-size: cover;
+    margin-right: 22px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    cursor: pointer;
+}
+
+.overflow__button:hover {
+    opacity: 0.6;
+}
+
+.overflow__nav {
+    width: 100%;
+    height: 100%;
+    margin-top: 105px;
+    margin-bottom: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.overflow__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 122px;
+    padding: 0;
+    margin: 0;
+}
+
+.overflow__link {
+    color: #fff;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 200;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+.overflow__link:hover {
+    opacity: 0.6;
+}
+
+.overflow__link_active {
+    border-bottom: 1px solid #fff;
+}
+
+.overflow__account-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 12px;
+    text-decoration: none;
+}
+
+.overflow__account-link:hover {
+    opacity: 0.6;
+}
+
+.overflow__icon {
+    margin-left: 7px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .overflow {
+        max-width: 320px;
+    }
+    .overflow__close-icon {
+        margin-top: 14px;
+    }
+    .overflow__button {
+        margin-right: 14px;
+    }
+    .overflow__nav {
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+    .overflow__list {
+        height: 112px;
+    }
+    .overflow__account-link {
+        width: 78px;
+    }
+}

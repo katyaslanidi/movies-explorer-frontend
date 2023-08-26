@@ -1,0 +1,131 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 74px;
+    margin: 0;
+    padding: 0 70px;
+    background-color: #073042;
+}
+
+.header-movies {
+    background-color: #202020;
+}
+
+.header__logo {
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+}
+
+.header__logo:hover {
+    opacity: 0.6;
+}
+
+.header__nav {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 44px;
+    padding: 0;
+    max-width: 1002px;
+    width: 100%;
+}
+
+.header__nav_movies {
+    max-width: 100%;
+    justify-content: space-between;
+}
+
+.header__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+    align-items: baseline;
+}
+
+.header__list_movies {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 16px;
+    margin-left: 44px;
+}
+
+.header__link {
+    color: #fff;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 18px;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header__link:hover {
+    opacity: 0.6;
+}
+
+.header__link_active {
+    font-weight: 500;
+}
+
+.header__account-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 12px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header__account-link:hover {
+    opacity: 0.8;
+}
+
+.header__icon {
+    width: 26px;
+    height: 26px;
+    margin-left: 10px;
+}
+
+.header__auth-link {
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    margin: 0;
+    color: #fff;
+    text-decoration: none;
+}
+
+.header__auth-link_login {
+    background-color: #3DDC84;
+    border-radius: 3px;
+    width: 76px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: #000;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 0 30px;
+    }
+    .header__nav_movies {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .header {
+        padding: 0 14px;
+    }
+}
