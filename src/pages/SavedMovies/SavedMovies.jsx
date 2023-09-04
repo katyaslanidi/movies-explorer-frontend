@@ -4,29 +4,58 @@ import SearchForm from '../../components/SearchForm/SearchForm';
 import MoviesCardList from '../../components/MoviesCardList/MoviesCardList';
 import MoreMoviesButton from '../../components/MoreMoviesButton/MoreMoviesButton';
 import Footer from '../../components/Footer/Footer';
-import { moviesSavedArr } from '../../utils/constants';
 
-function Movies() {
-    const [movies, setMovies] = useState([]);
+import { filterMovies, filterDuration } from "../../utils/filter";
+
+function Movies({
+    isLoggedIn,
+    handleDeleteMovie,
+    savedMovies,
+}) {
+
+    const [filteredMovies, setFilteredMovies] = useState(savedMovies);
+    const [isShortFilm, setisShortFilm] = useState(false);
+    const [isNotFound, setIsNotFound] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+  
+    function handleSearchMoviesFilms(query) {
+      setSearchQuery(query);
+    }
+  
+    function handleShortFilmToggle() {
+      setisShortFilm(!isShortFilm);
+    }
+  
     useEffect(() => {
-        setTimeout(() => {
-            setMovies(moviesSavedArr)
-        }, 1000)
-    }, [])
+      const moviesCardList = filterMovies(savedMovies, searchQuery);
+      setFilteredMovies(
+        isShortFilm ? filterDuration(moviesCardList) : moviesCardList
+      );
+    }, [savedMovies, isShortFilm, searchQuery]);
+  
+    useEffect(() => {
+      if (filteredMovies.length === 0) {
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    }, [filteredMovies]);
 
     return (
         <>
             <Header
-                isLoggedIn='true'
+                isLoggedIn={isLoggedIn}
             />
             <main>
-                <SearchForm />
-                <MoviesCardList
-                    movies={movies}
-                    saved={true}
+                <SearchForm 
+                    handleSearchMoviesFilms={handleSearchMoviesFilms}
+                    handleShortFilmToggle={handleShortFilmToggle}
                 />
-                <MoreMoviesButton
-                    hasMoreMovies={false}
+                <MoviesCardList
+                    isNotFound={isNotFound}
+                    isSavedMovies={true}
+                    movies={filterMovies}
+                    handleDeleteMovie={handleDeleteMovie}
                 />
             </main>
             <Footer />

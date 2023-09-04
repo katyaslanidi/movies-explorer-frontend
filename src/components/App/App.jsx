@@ -202,6 +202,7 @@ function App() {
               Component={SavedMovies}
               path='/saved-movies'
               isLoggedIn={isLoggedIn}
+              savedMovies={savedMovies}
               handleDeleteMovie={handleDeleteMovie}
             />
           }
@@ -213,6 +214,7 @@ function App() {
               isLoggedIn={isLoggedIn}
               isLoading={isLoading}
               handleSignOut={handleSignOut}
+              handleUpdateUserInfo={handleUpdateUserInfo}
             />
           }
           />

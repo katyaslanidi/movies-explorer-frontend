@@ -1,32 +1,30 @@
 import React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import './CardButton.css';
 
 function CardButton(props) {
-    const [isSaved, setIsSaved] = useState(props.isSaved);
-    const saved = props.saved;
-    const handleLikeClick = () => {
-        setIsSaved(!isSaved)
-    }
-    const handleDeleteClick = () => {
-    }
+    // const [isSaved, setIsSaved] = useState(props.isSaved);
+    // const saved = props.saved;
+    // const handleLikeClick = () => {
+    //     setIsSaved(!isSaved)
+    // }
     return (
         <>
             {
-                saved ? (
+                props.saved ? (
                     <button
                         className='movie-card__delete-button'
                         type='button'
-                        onClick={handleDeleteClick}
+                        onClick={props.onClick}
                     ></button>
                 ) : (
                     <button
                         className={
                             `movie-card__save-button
-                            ${isSaved ? 'movie-card__save-button_liked' : ''}`
+                            ${props.isSaved ? 'movie-card__save-button_liked' : ''}`
                         }
                         type='button'
-                        onClick={handleLikeClick}
+                        onClick={props.onClick}
                     ></button>
                 )
             }

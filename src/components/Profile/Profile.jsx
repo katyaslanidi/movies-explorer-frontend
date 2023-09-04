@@ -1,12 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './Profile.css';
 
-function Profile() {
+import { EMAIL_PATTERN } from "../../utils/constants";
+
+function Profile({
+    currentUser,
+    handleFormSubmit,
+    handleChangeInput,
+    enteredValues,
+    errors,
+    isFormValid,
+    isLoading,
+    isLastValues,
+    handleSignOut,
+}) {
     return (
         <section className='profile'>
-            <h1 className='profile__title'>Привет, Виталий!</h1>
-            <form name='profile' className='profile__form'>
+            <h1 className='profile__title'>Привет, {currentUser.name}!</h1>
+            <form 
+                name='profile' 
+                className='profile__form'
+                onSubmit={handleFormSubmit}
+            >
                 <fieldset className='profile__item'>
                     <label htmlFor='name' className='profile__label'>
                         Имя
@@ -19,6 +35,8 @@ function Profile() {
                             maxLength='30'
                             placeholder='Виталий'
                             className='profile__input'
+                            onChange={handleChangeInput}
+                            value={enteredValues.name || ''}
                         />
                     </label>
                     <label htmlFor='email' className='profile__label profile__label_email'>
@@ -30,11 +48,25 @@ function Profile() {
                             required
                             placeholder='pochta@yandex.ru'
                             className='profile__input'
+                            onChange={handleChangeInput}
+                            value={enteredValues.email || ''}
+                            pattern={EMAIL_PATTERN}
                         />
                     </label>
                 </fieldset>
-                <button type='submit' className='profile__button'>Редактировать</button>
-                <Link to='/' className='profile__button profile__button_signout'>Выйти из аккаунта</Link>
+                <button 
+                    type='submit' 
+                    className='profile__button'
+                    disabled={!isFormValid ? true : false}
+                >
+                    Редактировать
+                </button>
+                <button 
+                    className='profile__button profile__button_signout'
+                    onClick={handleSignOut}
+                >
+                    Выйти из аккаунта
+                </button>
             </form>
         </section>
     );

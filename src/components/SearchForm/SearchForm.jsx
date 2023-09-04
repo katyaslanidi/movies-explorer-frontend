@@ -22,7 +22,7 @@ function SearchForm({
             setIsQueryError(true);
         } else {
             setIsQueryError(false);
-            onSearchMoviesFilms(query);
+            handleSearchMoviesFilms(query);
         }
     }
 

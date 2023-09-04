@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from 'react-router-dom';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import Preloader from '../Preloader';
+import Preloader from '../Preloader/Preloader';
 
 import {
     SHOW_MORE_DECKTOP,
@@ -21,6 +21,7 @@ function MoviesCardList({
     handleDeleteMovie,
 }) {
     const currentPath = useLocation().pathname;
+    const [shownMovies, setShownMovies] = useState(0);
 
     // Определяет количество отображаемых карточек в зависимости от размера экрана
     const shownCount = () => {
@@ -67,34 +68,49 @@ function MoviesCardList({
             ${currentPath === '/saved-movies'
                 ? 'cards-saved' : ''}`}
         >
-            {isLoading && <Preloader />}
+            {/* {isLoading && <Preloader />}
             {isNotFound && !isLoading && (
                 <SearchError errorText={"Ничего не найдено"} />
-            )}
-            <ul className='cards__list'>
-                {
-                    movies.map((movie, i) => {
-                        return (
-                            <li key={i} className='cards__item'>
+            )} */}
+            {/* <ul className='cards__list'> */}
+                {currentPath === "/saved-movies" ? (
+                        <ul className='cards__list'>
+                            {movies.map(movie => (
                                 <MoviesCard
+                                    key={isSavedMovies ? movie._id : movie.id}
+                                    saved={getSavedMovieCard(savedMovies, movie)}
+                                    movies={movies}
                                     movie={movie}
-                                    saved={saved}
+                                    isSavedMovies={isSavedMovies}
+                                    handleSaveMovie={handleSaveMovie}
+                                    handleDeleteMovie={handleDeleteMovie}
+                                    savedMovies={savedMovies}
                                 />
-                            </li>
-                        );
-                    })
-                }
-            </ul>
+                        ))}
+                        </ul>
+                    ) : (
+                        <ul className='cards__list'>
+{                        movies.slice(0, shownMovies).map(movie => (
+                                <MoviesCard
+                                    key={isSavedMovies ? movie._id : movie.id}
+                                    saved={getSavedMovieCard(savedMovies, movie)}
+                                    movies={movies}
+                                    movie={movie}
+                                    isSavedMovies={isSavedMovies}
+                                    handleSaveMovie={handleSaveMovie}
+                                    handleDeleteMovie={handleDeleteMovie}
+                                    savedMovies={savedMovies}
+                                />
+                        )
+                        )}
+                        </ul>
+                    )}
             <section className='more-movies'>
-                <button
-                    className={`
-                    more-movies__button
-                    ${ ? '' : 'more-movies__button_hidden'}
-                `}
-                    type='button'
-                >
-                    {`${ ? 'Ещё' : ''}`}
-                </button>
+                {movies.length > shownMovies ? (
+                    <button className='more-movies__button' onClick={showMore} type='button'>
+                        Ещё
+                    </button>
+                ) : ('')}
             </section>
         </section>
     );
