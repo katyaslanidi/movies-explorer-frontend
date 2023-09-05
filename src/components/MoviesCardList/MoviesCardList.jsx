@@ -56,7 +56,9 @@ function MoviesCardList({
 
     // Возвращает сохраненную карточку фильма из массива сохраненных фильмов
     const getSavedMovieCard = (savedMovies, card) => {
-        return savedMovies.find((savedMovie) => savedMovie.movieId === card.id);
+        if (savedMovies !== undefined) {
+            return savedMovies.find((savedMovie) => savedMovie.movieId === card.id);
+        }
     }
 
     return (
@@ -71,9 +73,9 @@ function MoviesCardList({
             {currentPath === "/saved-movies" ? (
                 <ul className='cards__list'>
                     {
-                        movies.map(movie => (
+                        movies?.map(movie => (
                             <MoviesCard
-                                key={isSavedMovies ? movie._id : movie.id}
+                                key={movie._id || movie.id}
                                 saved={getSavedMovieCard(savedMovies, movie)}
                                 movies={movies}
                                 movie={movie}
@@ -86,9 +88,9 @@ function MoviesCardList({
                 </ul>
             ) : (
                 <ul className='cards__list'>
-                    {movies.slice(0, shownMovies).map(movie => (
+                    {movies?.slice(0, shownMovies).map(movie => (
                         <MoviesCard
-                            key={isSavedMovies ? movie._id : movie.id}
+                            key={movie._id || movie.id}
                             saved={getSavedMovieCard(savedMovies, movie)}
                             movies={movies}
                             movie={movie}
@@ -102,11 +104,13 @@ function MoviesCardList({
                 </ul>
             )}
             <section className='more-movies'>
-                {movies.length > shownMovies ? (
-                    <button className='more-movies__button' onClick={showMore} type='button'>
-                        Ещё
-                    </button>
-                ) : ('')}
+                {
+                    movies.length > shownMovies ? (
+                        <button className='more-movies__button' onClick={showMore} type='button'>
+                            Ещё
+                        </button>
+                    ) : ('')
+                }
             </section>
         </section>
     );

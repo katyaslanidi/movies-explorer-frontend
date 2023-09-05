@@ -40,6 +40,8 @@ function Movies({
       }
     }, [filteredMovies]);
 
+    // console.log(savedMovies, 'SavedMovies');
+
     return (
         <>
             <Header
@@ -55,6 +57,7 @@ function Movies({
                     isSavedMovies={true}
                     movies={filteredMovies}
                     handleDeleteMovie={handleDeleteMovie}
+                    savedMovies={savedMovies}
                 />
             </main>
             <Footer />

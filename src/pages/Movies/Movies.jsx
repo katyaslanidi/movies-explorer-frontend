@@ -14,6 +14,8 @@ function Movies({
     handleSaveMovie,
 }) {
 
+  // const savedMoviesArr = Object.values(savedMovies);
+
     const [isLoading, setIsLoading] = useState(false);
 
     const [initialCardsMovies, setInitialCardsMovies] = useState([]);
@@ -106,6 +108,8 @@ function Movies({
     }
   }, [filteredMovies]);
 
+  // console.log(typeof(savedMovies), 'Movie');
+
     return (
         <>
             <Header
@@ -119,6 +123,7 @@ function Movies({
                 />
                 <MoviesCardList
                     movies={filteredMovies}
+                    
                     isLoading={isLoading}
                     isSavedMovies={false}
                     isReqError={isReqError}

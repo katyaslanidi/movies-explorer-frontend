@@ -174,6 +174,8 @@ function App() {
       });
   }
 
+  // console.log(savedMovies, 'App')
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
