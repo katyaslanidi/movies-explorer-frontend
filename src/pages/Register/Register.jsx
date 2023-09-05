@@ -1,6 +1,5 @@
 import React from 'react';
 import Form from '../../components/Form/Form';
-
 import useForm from '../../hooks/useForm';
 
 function Register({

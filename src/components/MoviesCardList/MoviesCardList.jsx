@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from 'react-router-dom';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import Preloader from '../Preloader/Preloader';
+// import Preloader from '../Preloader/Preloader';
 
 import {
     SHOW_MORE_DECKTOP,
@@ -12,10 +12,7 @@ import {
 
 function MoviesCardList({
     movies,
-    isLoading,
     isSavedMovies,
-    isReqError,
-    isNotFound,
     savedMovies,
     handleSaveMovie,
     handleDeleteMovie,
@@ -62,7 +59,6 @@ function MoviesCardList({
         return savedMovies.find((savedMovie) => savedMovie.movieId === card.id);
     }
 
-
     return (
         <section className={`cards
             ${currentPath === '/saved-movies'
@@ -72,39 +68,39 @@ function MoviesCardList({
             {isNotFound && !isLoading && (
                 <SearchError errorText={"Ничего не найдено"} />
             )} */}
-            {/* <ul className='cards__list'> */}
-                {currentPath === "/saved-movies" ? (
-                        <ul className='cards__list'>
-                            {movies.map(movie => (
-                                <MoviesCard
-                                    key={isSavedMovies ? movie._id : movie.id}
-                                    saved={getSavedMovieCard(savedMovies, movie)}
-                                    movies={movies}
-                                    movie={movie}
-                                    isSavedMovies={isSavedMovies}
-                                    handleSaveMovie={handleSaveMovie}
-                                    handleDeleteMovie={handleDeleteMovie}
-                                    savedMovies={savedMovies}
-                                />
+            {currentPath === "/saved-movies" ? (
+                <ul className='cards__list'>
+                    {
+                        movies.map(movie => (
+                            <MoviesCard
+                                key={isSavedMovies ? movie._id : movie.id}
+                                saved={getSavedMovieCard(savedMovies, movie)}
+                                movies={movies}
+                                movie={movie}
+                                isSavedMovies={isSavedMovies}
+                                handleSaveMovie={handleSaveMovie}
+                                handleDeleteMovie={handleDeleteMovie}
+                                savedMovies={savedMovies}
+                            />
                         ))}
-                        </ul>
-                    ) : (
-                        <ul className='cards__list'>
-{                        movies.slice(0, shownMovies).map(movie => (
-                                <MoviesCard
-                                    key={isSavedMovies ? movie._id : movie.id}
-                                    saved={getSavedMovieCard(savedMovies, movie)}
-                                    movies={movies}
-                                    movie={movie}
-                                    isSavedMovies={isSavedMovies}
-                                    handleSaveMovie={handleSaveMovie}
-                                    handleDeleteMovie={handleDeleteMovie}
-                                    savedMovies={savedMovies}
-                                />
-                        )
-                        )}
-                        </ul>
+                </ul>
+            ) : (
+                <ul className='cards__list'>
+                    {movies.slice(0, shownMovies).map(movie => (
+                        <MoviesCard
+                            key={isSavedMovies ? movie._id : movie.id}
+                            saved={getSavedMovieCard(savedMovies, movie)}
+                            movies={movies}
+                            movie={movie}
+                            isSavedMovies={isSavedMovies}
+                            handleSaveMovie={handleSaveMovie}
+                            handleDeleteMovie={handleDeleteMovie}
+                            savedMovies={savedMovies}
+                        />
+                    )
                     )}
+                </ul>
+            )}
             <section className='more-movies'>
                 {movies.length > shownMovies ? (
                     <button className='more-movies__button' onClick={showMore} type='button'>

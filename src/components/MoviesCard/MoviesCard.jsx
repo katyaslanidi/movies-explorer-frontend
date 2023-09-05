@@ -5,9 +5,7 @@ import CardButton from '../CardButton/CardButton';
 import { durationConverter } from "../../utils/filter";
 
 function MoviesCard({
-    key,
     saved,
-    movies,
     movie,
     isSavedMovies,
     handleSaveMovie,
@@ -27,10 +25,6 @@ function MoviesCard({
         handleDeleteMovie(movie);
     }
 
-    //   const cardLikeButtonClassName = `${
-    //     saved ? "card__like-button card__like-button_active" : "card__like-button"
-    //   }`;
-
     return (
         <article className='movie-card'>
             <a href={movie.trailerLink} className='movie-card__link' target='blank'>
@@ -46,12 +40,12 @@ function MoviesCard({
                     (<CardButton
                         saved={saved}
                         isSaved={movie.isSaved}
-                        onClick={handleCardClick}
+                        onClick={handleDelete}
                     />) : (
                         <CardButton
                             saved={saved}
                             isSaved={movie.isSaved}
-                            onClick={handleDelete}
+                            onClick={handleCardClick}
                         />
                     )}
             </div>

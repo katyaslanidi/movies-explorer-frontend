@@ -2,15 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import MoviesCardList from '../../components/MoviesCardList/MoviesCardList';
-import MoreMoviesButton from '../../components/MoreMoviesButton/MoreMoviesButton';
 import Footer from '../../components/Footer/Footer';
-// import { moviesArr } from '../../utils/constants';
 
 import { filterMovies, filterDuration } from "../../utils/filter";
 import * as movies from "../../utils/MoviesApi";
 
 function Movies({
-    path,
     savedMovies,
     isLoggedIn,
     handleDeleteMovie,
@@ -28,7 +25,7 @@ function Movies({
     const [filteredMovies, setFilteredMovies] = useState([]);
 
     const handleUpdateFilteredMovies = (movies, query, short) => {
-        const moviesCardList = filteredMovies(movies, query, short);
+        const moviesCardList = filterMovies(movies, query, short);
         setInitialCardsMovies(moviesCardList);
         setFilteredMovies(short ? filterDuration(moviesCardList) : moviesCardList);
         localStorage.setItem("movies", JSON.stringify(moviesCardList));
@@ -121,7 +118,7 @@ function Movies({
                     isShortFilm={isShortFilm}
                 />
                 <MoviesCardList
-                    movies={filterMovies}
+                    movies={filteredMovies}
                     isLoading={isLoading}
                     isSavedMovies={false}
                     isReqError={isReqError}
@@ -130,9 +127,6 @@ function Movies({
                     handleSaveMovie={handleSaveMovie}
                     handleDeleteMovie={handleDeleteMovie}
                 />
-                {/* <MoreMoviesButton
-                    hasMoreMovies={true}
-                /> */}
             </main>
             <Footer />
         </>

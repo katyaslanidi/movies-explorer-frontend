@@ -3,7 +3,6 @@ import Header from '../../components/Header/Header';
 import Profile from '../../components/Profile/Profile';
 
 import useForm from '../../hooks/useForm';
-// import { EMAIL_PATTERN } from "../../utils/constants";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function ProfilePage({
@@ -46,8 +45,6 @@ function ProfilePage({
         } else {
             setIsLastValues(false);
         }
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [enteredValues]);
 
     return (
@@ -56,7 +53,7 @@ function ProfilePage({
                 isLoggedIn={isLoggedIn}
             />
             <main>
-                <Profile 
+                <Profile
                     currentUser={currentUser}
                     handleFormSubmit={handleFormSubmit}
                     handleChangeInput={handleChangeInput}

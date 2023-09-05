@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import './Profile.css';
 
 import { EMAIL_PATTERN } from "../../utils/constants";
@@ -9,10 +8,7 @@ function Profile({
     handleFormSubmit,
     handleChangeInput,
     enteredValues,
-    errors,
     isFormValid,
-    isLoading,
-    isLastValues,
     handleSignOut,
 }) {
     return (

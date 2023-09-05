@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import MoviesCardList from '../../components/MoviesCardList/MoviesCardList';
-import MoreMoviesButton from '../../components/MoreMoviesButton/MoreMoviesButton';
 import Footer from '../../components/Footer/Footer';
 
 import { filterMovies, filterDuration } from "../../utils/filter";
@@ -54,7 +53,7 @@ function Movies({
                 <MoviesCardList
                     isNotFound={isNotFound}
                     isSavedMovies={true}
-                    movies={filterMovies}
+                    movies={filteredMovies}
                     handleDeleteMovie={handleDeleteMovie}
                 />
             </main>

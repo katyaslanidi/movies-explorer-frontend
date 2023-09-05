@@ -52,23 +52,10 @@ function App() {
     }
   }, [])
 
-  const handleRegistration = ({ name, email, password }) => {
-    api
-      .registration(name, email, password)
-      .then(() => {
-        setIsAuthOk(true);
-        handleLogin({ email, password });
-      })
-      .catch((err) => {
-        setIsAuthOk(false);
-        console.log(err);
-      })
-  }
-
   const handleLogin = ({ email, password }) => {
     setIsLoading(true);
     api
-      .login(email, password)
+      .login({ email, password })
       .then((res) => {
         if (res) {
           setIsAuthOk(true);
@@ -86,6 +73,19 @@ function App() {
       })
   }
 
+  const handleRegistration = ({ name, email, password }) => {
+    api
+      .registration({ name, email, password })
+      .then(() => {
+        setIsAuthOk(true);
+        handleLogin({ email, password });
+      })
+      .catch((err) => {
+        setIsAuthOk(false);
+        console.log(err);
+      })
+  }
+
   const handleSignOut = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("jwt");
@@ -98,11 +98,11 @@ function App() {
   }
 
   //проверка ошибки авторизации
-  const handleUnauthorisedErr = (err) => {
-    if (err === 'Error: 401') {
-      handleSignOut();
-    }
-  }
+  // const handleUnauthorisedErr = (err) => {
+  //   if (err === 'Error: 401') {
+  //     handleSignOut();
+  //   }
+  // }
 
   //получение инф о пользователе
   useEffect(() => {
@@ -138,7 +138,7 @@ function App() {
       .catch((err) => {
         setIsUpdate(false);
         console.log(err);
-        handleUnauthorisedErr(err);
+        // handleUnauthorisedErr(err);
       })
       .finally(() => {
         setIsLoading(false);
@@ -155,7 +155,7 @@ function App() {
       .catch((err) => {
         setIsAuthOk(false);
         console.log(err);
-        handleUnauthorisedErr(err);
+        // handleUnauthorisedErr(err);
       });
   }
 
@@ -170,11 +170,9 @@ function App() {
       .catch((err) => {
         setIsAuthOk(false);
         console.log(err);
-        handleUnauthorisedErr(err);
+        // handleUnauthorisedErr(err);
       });
   }
-
-  //написать открытие и закрытие по Overlay и esc
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

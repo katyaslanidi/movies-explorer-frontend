@@ -1,7 +1,5 @@
 import { useState, useCallback } from "react";
 
-//Хук useForm для управления состоянием формы,
-//упрощает управление состоянием и валидацией формы в React-компонентах.
 const useForm = () => {
   const [enteredValues, setEnteredInputValues] = useState({});
   const [errors, setErrors] = useState({});

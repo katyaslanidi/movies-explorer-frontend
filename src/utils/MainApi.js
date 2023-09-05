@@ -8,7 +8,7 @@ export const checkResponse = (res) => {
 };
 
 //регистрация
-export const registration = (name, email, password) => {
+export const registration = ({ name, email, password }) => {
     return fetch(`${BASE_URL}/signup`, {
         method: "POST",
         headers: {
@@ -19,7 +19,7 @@ export const registration = (name, email, password) => {
 };
 
 //авторизация
-export const login = (email, password) => {
+export const login = ({ email, password }) => {
     return fetch(`${BASE_URL}/signin`, {
         method: "POST",
         headers: {
