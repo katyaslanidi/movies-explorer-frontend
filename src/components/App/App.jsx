@@ -161,10 +161,10 @@ function App() {
 
   const handleDeleteMovie = (movie) => {
     api
-      .deleteMovie(movie._id)
+      .deleteMovie(movie._id || movie.id)
       .then(() => {
         setSavedMovies((state) => {
-          state.filter((item) => item._id !== movie._id)
+          state.filter((item) => (item._id !== movie._id) || (item.id !== movie.id))
         })
       })
       .catch((err) => {

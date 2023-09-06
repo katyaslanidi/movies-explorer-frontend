@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 // import Preloader from '../Preloader/Preloader';
@@ -56,9 +56,7 @@ function MoviesCardList({
 
     // Возвращает сохраненную карточку фильма из массива сохраненных фильмов
     const getSavedMovieCard = (savedMovies, card) => {
-        if (savedMovies !== undefined) {
-            return savedMovies.find((savedMovie) => savedMovie.movieId === card.id);
-        }
+        return savedMovies.find((m) => m.movieId === card.id);
     }
 
     return (

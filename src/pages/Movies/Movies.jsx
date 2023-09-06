@@ -108,8 +108,6 @@ function Movies({
     }
   }, [filteredMovies]);
 
-  // console.log(typeof(savedMovies), 'Movie');
-
     return (
         <>
             <Header
@@ -123,7 +121,6 @@ function Movies({
                 />
                 <MoviesCardList
                     movies={filteredMovies}
-                    
                     isLoading={isLoading}
                     isSavedMovies={false}
                     isReqError={isReqError}
