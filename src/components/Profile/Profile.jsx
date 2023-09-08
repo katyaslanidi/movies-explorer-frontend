@@ -53,7 +53,7 @@ function Profile({
                 <button 
                     type='submit' 
                     className='profile__button'
-                    disabled={!isFormValid ? true : false}
+                    // disabled={!isFormValid ? true : false}
                 >
                     Редактировать
                 </button>

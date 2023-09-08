@@ -6,14 +6,16 @@ import Footer from '../../components/Footer/Footer';
 
 import { filterMovies, filterDuration } from "../../utils/filter";
 
-function Movies({
+function SavedMovies({
   isLoggedIn,
   handleDeleteMovie,
   savedMovies,
 }) {
 
   const [filteredMovies, setFilteredMovies] = useState(savedMovies);
+
   const [isShortFilm, setisShortFilm] = useState(false);
+
   const [isNotFound, setIsNotFound] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -33,13 +35,11 @@ function Movies({
   }, [savedMovies, isShortFilm, searchQuery]);
 
   useEffect(() => {
-    // if (filteredMovies !== undefined) {
       if (filteredMovies.length === 0) {
         setIsNotFound(true);
       } else {
         setIsNotFound(false);
       }
-    // }
   }, [filteredMovies]);
 
   // console.log(savedMovies, 'SavedMovies');
@@ -55,11 +55,16 @@ function Movies({
           handleShortFilmToggle={handleShortFilmToggle}
         />
         <MoviesCardList
-          isNotFound={isNotFound}
-          isSavedMovies={true}
           movies={filteredMovies}
-          handleDeleteMovie={handleDeleteMovie}
+          isSavedMovies={true}
           savedMovies={savedMovies}
+          handleDeleteMovie={handleDeleteMovie}
+          // isNotFound={isNotFound}        
+          // isNotFound={isNotFound}
+          // isSavedMovies={true}
+          // movies={filteredMovies}
+          // handleDeleteMovie={handleDeleteMovie}
+          // savedMovies={savedMovies}
         />
       </main>
       <Footer />
@@ -67,4 +72,4 @@ function Movies({
   );
 }
 
-export default Movies;
+export default SavedMovies;

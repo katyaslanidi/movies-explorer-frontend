@@ -29,7 +29,7 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState({});
 
-  const [savedMovies, setSavedMovies] = useState([]);
+  const [savedMovies, set] = useState([]);
 
   const [isUpdate, setIsUpdate] = useState(false);
 
@@ -145,7 +145,6 @@ function App() {
       })
   }
 
-  //сохранение фильма
   const handleSaveMovie = (movie) => {
     api
       .createMovie(movie)
@@ -155,26 +154,22 @@ function App() {
       .catch((err) => {
         setIsAuthOk(false);
         console.log(err);
-        // handleUnauthorisedErr(err);
       });
   }
 
   const handleDeleteMovie = (movie) => {
     api
-      .deleteMovie(movie._id || movie.id)
+      .deleteMovie(movie._id)
       .then(() => {
         setSavedMovies((state) => {
-          state.filter((item) => (item._id !== movie._id) || (item.id !== movie.id))
+          state.filter((item) => item._id !== movie._id)
         })
       })
       .catch((err) => {
         setIsAuthOk(false);
         console.log(err);
-        // handleUnauthorisedErr(err);
       });
   }
-
-  // console.log(savedMovies, 'App')
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

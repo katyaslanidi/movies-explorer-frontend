@@ -121,10 +121,10 @@ function Movies({
                 />
                 <MoviesCardList
                     movies={filteredMovies}
-                    isLoading={isLoading}
+                    // isLoading={isLoading}
                     isSavedMovies={false}
-                    isReqError={isReqError}
-                    isNotFound={isNotFound}
+                    // isReqError={isReqError}
+                    // isNotFound={isNotFound}
                     savedMovies={savedMovies}
                     handleSaveMovie={handleSaveMovie}
                     handleDeleteMovie={handleDeleteMovie}

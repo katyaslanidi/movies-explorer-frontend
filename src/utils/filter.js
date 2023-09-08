@@ -13,14 +13,28 @@ export function filterDuration(movies) {
 }
 
 // Фильтрация по поисковому запросу:
+
 export function filterMovies(movies, query) {
-  const moviesByQuery = movies.filter((movie) => {
-    const movieRu = String(movie.nameRU).toLowerCase().trim();
-    const movieEn = String(movie.nameEN).toLowerCase().trim();
-    const userQuery = query.toLowerCase().trim();
+  const filterdMovies = movies?.filter((i) => {
+    const { nameRU, nameEN } = i;
+    const lowercaseQuery = query.toLowerCase();
     return (
-      movieRu.indexOf(userQuery) !== -1 || movieEn.indexOf(userQuery) !== -1
+      nameRU.toLowerCase().includes(lowercaseQuery)
+      || nameEN.toLowerCase().includes(lowercaseQuery)
     );
-  });
-  return moviesByQuery;
+  })
+
+  return filterdMovies;
 }
+
+// export function filterMovies(movies, query) {
+//   const moviesByQuery = movies.filter((movie) => {
+//     const movieRu = String(movie.nameRU).toLowerCase().trim();
+//     const movieEn = String(movie.nameEN).toLowerCase().trim();
+//     const userQuery = query.toLowerCase().trim();
+//     return (
+//       movieRu.indexOf(userQuery) !== -1 || movieEn.indexOf(userQuery) !== -1
+//     );
+//   });
+//   return moviesByQuery;
+// }
