@@ -1,0 +1,117 @@
+.profile {
+    min-height: 626px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+    padding-bottom: 270px;
+}
+
+.profile__title {
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 75px;
+}
+
+.profile__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile__item {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 195px;
+}
+
+.profile__label {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    text-align: left;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 200;
+    width: 410px;
+    padding-bottom: 15px;
+}
+
+.profile__input {
+    color: #fff;
+    text-align: right;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 200;
+    border: none;
+    background-color: #202020;
+    width: 130px;
+    outline: none;
+}
+
+.profile__input:focus {
+    border: 1px solid #4285F4;
+}
+
+.profile__input-error {
+    width: 396px;
+    margin-top: 4px;    
+    color: #EE3465;
+}
+
+.profile__label_email {
+    border-top: 1px solid #424242;
+    padding-top: 17px;
+}
+
+.profile__button {
+    border: none;
+    background-color: #202020;
+    color: #fff;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+.profile__button:hover {
+    opacity: 0.6;
+}
+
+.profile__button_signout {
+    color: #EE3465;
+    margin-top: 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .profile {
+        padding-top: 218px;
+    }
+    .profile__item {
+        margin-top: 70px;
+        margin-bottom: 185px;
+    }
+    .profile__input-error {
+        width: 260px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .profile {
+        padding-top: 50px;
+    }
+    .profile__item {
+        margin-top: 56px;
+        margin-bottom: 354px;
+    }
+    .profile__label {
+        width: 260px;
+    }
+}
