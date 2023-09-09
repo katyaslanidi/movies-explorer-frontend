@@ -59,7 +59,7 @@ function SearchForm({
                             id='checkbox'
                             className='filter-checkbox__checkbox'
                             onChange={handleShortFilmToggle}
-                            checked={isShortFilm}
+                            checked={!isShortFilm}
                         />
                         Короткометражки
                     </label>

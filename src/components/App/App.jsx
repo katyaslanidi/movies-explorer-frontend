@@ -27,9 +27,11 @@ function App() {
 
   const [isAuthOk, setIsAuthOk] = useState(false);
 
+  const [isFormSubmitting, setIsFormSubmitting] = useState(false);
+
   const [currentUser, setCurrentUser] = useState({});
 
-  const [savedMovies, set] = useState([]);
+  const [savedMovies, setSavedMovies] = useState([]);
 
   const [isUpdate, setIsUpdate] = useState(false);
 
@@ -50,7 +52,20 @@ function App() {
           console.log(err);
         })
     }
-  }, [])
+  }, []);
+
+  const handleRegistration = ({ name, email, password }) => {
+    api
+      .registration({ name, email, password })
+      .then(() => {
+        setIsAuthOk(true);
+        handleLogin({ email, password });
+      })
+      .catch((err) => {
+        setIsAuthOk(false);
+        console.log(err);
+      })
+  }
 
   const handleLogin = ({ email, password }) => {
     setIsLoading(true);
@@ -70,19 +85,6 @@ function App() {
       })
       .finally(() => {
         setIsLoading(false);
-      })
-  }
-
-  const handleRegistration = ({ name, email, password }) => {
-    api
-      .registration({ name, email, password })
-      .then(() => {
-        setIsAuthOk(true);
-        handleLogin({ email, password });
-      })
-      .catch((err) => {
-        setIsAuthOk(false);
-        console.log(err);
       })
   }
 
@@ -128,7 +130,7 @@ function App() {
 
   //обновление данных пользователя
   const handleUpdateUserInfo = (newData) => {
-    setIsLoading(true);
+    setIsFormSubmitting(true);
     api
       .updateUserInfo(newData)
       .then((data) => {
@@ -141,7 +143,7 @@ function App() {
         // handleUnauthorisedErr(err);
       })
       .finally(() => {
-        setIsLoading(false);
+        setIsFormSubmitting(false);
       })
   }
 
@@ -162,7 +164,7 @@ function App() {
       .deleteMovie(movie._id)
       .then(() => {
         setSavedMovies((state) => {
-          state.filter((item) => item._id !== movie._id)
+          return state.filter((item) => item._id !== movie._id)
         })
       })
       .catch((err) => {
@@ -207,7 +209,7 @@ function App() {
               Component={ProfilePage}
               path='/profile'
               isLoggedIn={isLoggedIn}
-              isLoading={isLoading}
+              isFormSubmitting={isFormSubmitting}
               handleSignOut={handleSignOut}
               handleUpdateUserInfo={handleUpdateUserInfo}
             />

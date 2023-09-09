@@ -14,8 +14,6 @@ function Movies({
     handleSaveMovie,
 }) {
 
-  // const savedMoviesArr = Object.values(savedMovies);
-
     const [isLoading, setIsLoading] = useState(false);
 
     const [initialCardsMovies, setInitialCardsMovies] = useState([]);

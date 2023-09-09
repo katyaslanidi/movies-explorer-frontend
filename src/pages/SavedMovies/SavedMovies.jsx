@@ -42,8 +42,6 @@ function SavedMovies({
       }
   }, [filteredMovies]);
 
-  // console.log(savedMovies, 'SavedMovies');
-
   return (
     <>
       <Header
@@ -53,18 +51,13 @@ function SavedMovies({
         <SearchForm
           handleSearchMoviesFilms={handleSearchMoviesFilms}
           handleShortFilmToggle={handleShortFilmToggle}
+          isShortFilm={isShortFilm}
         />
         <MoviesCardList
           movies={filteredMovies}
           isSavedMovies={true}
           savedMovies={savedMovies}
           handleDeleteMovie={handleDeleteMovie}
-          // isNotFound={isNotFound}        
-          // isNotFound={isNotFound}
-          // isSavedMovies={true}
-          // movies={filteredMovies}
-          // handleDeleteMovie={handleDeleteMovie}
-          // savedMovies={savedMovies}
         />
       </main>
       <Footer />

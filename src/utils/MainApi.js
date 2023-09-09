@@ -7,17 +7,6 @@ export const checkResponse = (res) => {
     return Promise.reject(`Error: ${res.status}`);
 };
 
-//регистрация
-export const registration = ({ name, email, password }) => {
-    return fetch(`${BASE_URL}/signup`, {
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-        },
-        body: JSON.stringify({ name, email, password }),
-    }).then((res) => checkResponse(res));
-};
-
 //авторизация
 export const login = ({ email, password }) => {
     return fetch(`${BASE_URL}/signin`, {
@@ -27,6 +16,17 @@ export const login = ({ email, password }) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
+    }).then((res) => checkResponse(res));
+};
+
+//регистрация
+export const registration = ({ name, email, password }) => {
+    return fetch(`${BASE_URL}/signup`, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
     }).then((res) => checkResponse(res));
 };
 

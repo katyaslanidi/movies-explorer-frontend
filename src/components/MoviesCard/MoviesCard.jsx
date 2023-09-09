@@ -22,7 +22,7 @@ function MoviesCard({
     }
 
     function handleDelete() {
-        handleDeleteMovie(movie);
+        return handleDeleteMovie(movie);
     }
 
     return (

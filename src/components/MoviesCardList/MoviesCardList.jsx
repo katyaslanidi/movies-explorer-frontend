@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
-// import Preloader from '../Preloader/Preloader';
 
 import {
     SHOW_MORE_DECKTOP,
@@ -56,7 +55,7 @@ function MoviesCardList({
     }
 
     // Возвращает сохраненную карточку фильма из массива сохраненных фильмов
-    const getSavedMovieCard = (card) => {
+    const getSavedMovieCard = (savedMovies, card) => {
         return savedMovies.find((m) => m.movieId === card.id);
     }
 
@@ -65,10 +64,6 @@ function MoviesCardList({
             ${currentPath === '/saved-movies'
                 ? 'cards-saved' : ''}`}
         >
-            {/* {isLoading && <Preloader />}
-            {isNotFound && !isLoading && (
-                <SearchError errorText={"Ничего не найдено"} />
-            )} */}
             {currentPath === "/saved-movies" ? (
                 <ul className='cards__list'>
                     {

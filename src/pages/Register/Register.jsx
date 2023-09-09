@@ -31,7 +31,7 @@ function Register({
                 enteredValues={enteredValues}
                 errors={errors}
                 onSubmit={handleFormSubmit}
-                isDisabled={!isFormValid}
+                // isDisabled={!isFormValid}
                 isLoading={isLoading}
             />
         </main>
