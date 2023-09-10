@@ -4,7 +4,8 @@
     padding: 85px 70px 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
     cursor: default;
 }
 
@@ -47,5 +48,51 @@
     }
     .cards__item {
         height: 237px;
+    }
+}
+
+.more-movies {
+    background-color: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 130px;
+    padding: 0;
+    margin-bottom: 44px;
+    width: 100%;
+}
+
+.more-movies__button {
+    color: #fff;
+    background-color: #2F2F2F;
+    height: 36px;
+    max-width: 1140px;
+    width: 100%;
+    border: none;
+    font-size: 12px;
+    font-weight: 200;
+    font-style: normal;
+    text-align: center;
+    cursor: pointer;
+}
+
+.more-movies__button:hover {
+    opacity: 0.6;
+}
+
+.more-movies__button_hidden {
+    background-color: #202020;
+    cursor: default;
+}
+
+@media screen and (max-width: 1140px) {
+    .more-movies{
+        padding: 35px 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .more-movies{
+        padding: 0 10px;
     }
 }
