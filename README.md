@@ -4,8 +4,7 @@
 email: testReg@gmail.com
 password: testReg123
 
-https://github.com/katyaslanidi/movies-explorer-frontend/pull/3
-
+https://github.com/katyaslanidi/movies-explorer-frontend/pull/4
 
 
 ## Технологии:
