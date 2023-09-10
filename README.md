@@ -1,5 +1,13 @@
 # Frontend для дипломного проекта курса «Веб-разработчик» от «Яндекс Практикум».
 
+Данные для входа:
+email: testReg@gmail.com
+password: testReg123
+
+https://github.com/katyaslanidi/movies-explorer-frontend/pull/3
+
+
+
 ## Технологии:
 * HTML5
 * CCS3
