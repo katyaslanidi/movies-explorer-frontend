@@ -1,37 +1,24 @@
 import React from 'react';
-import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './CardButton.css';
 
+
 function CardButton(props) {
-    const [isSaved, setIsSaved] = useState(props.isSaved);
-    const saved = props.saved;
-    const handleLikeClick = () => {
-        setIsSaved(!isSaved)
-    }
-    const handleDeleteClick = () => {
-    }
+
+    const currentPath = useLocation().pathname;
+
+    const cardLikeButtonClassName = `${props.saved
+        ? "movie-card__save-button movie-card__save-button_liked" 
+        : "movie-card__save-button"}`;
+
     return (
-        <>
-            {
-                saved ? (
-                    <button
-                        className='movie-card__delete-button'
-                        type='button'
-                        onClick={handleDeleteClick}
-                    ></button>
-                ) : (
-                    <button
-                        className={
-                            `movie-card__save-button
-                            ${isSaved ? 'movie-card__save-button_liked' : ''}`
-                        }
-                        type='button'
-                        onClick={handleLikeClick}
-                    ></button>
-                )
-            }
-        </>
+        <button
+            className={`${currentPath === '/saved-movies' 
+                ? 'movie-card__delete-button' 
+                : cardLikeButtonClassName }`}
+            type='button'
+            onClick={props.onClick}
+        ></button>
     );
 }
-
 export default CardButton;

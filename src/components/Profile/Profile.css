@@ -58,6 +58,12 @@
     border: 1px solid #4285F4;
 }
 
+.profile__input-error {
+    width: 396px;
+    margin-top: 4px;    
+    color: #EE3465;
+}
+
 .profile__label_email {
     border-top: 1px solid #424242;
     padding-top: 17px;
@@ -91,6 +97,9 @@
     .profile__item {
         margin-top: 70px;
         margin-bottom: 185px;
+    }
+    .profile__input-error {
+        width: 260px;
     }
 }
 

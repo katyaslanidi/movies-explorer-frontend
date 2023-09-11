@@ -8,11 +8,11 @@ import AboutMe from '../../components/AboutMe/AboutMe';
 import Portfolio from '../../components/Portfolio/Portfolio';
 import Footer from '../../components/Footer/Footer';
 
-function Main() {
+function Main({ isLoggedIn }) {
     return (
         <>
             <Header
-                isLoggedIn='false'
+                isLoggedIn={isLoggedIn}
             />
             <main>
                 <Promo />
@@ -26,5 +26,4 @@ function Main() {
         </>
     );
 }
-
 export default Main;

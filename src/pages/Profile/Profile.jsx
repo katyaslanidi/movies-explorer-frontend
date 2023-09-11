@@ -1,18 +1,26 @@
-import React from 'react';
+import React from "react";
 import Header from '../../components/Header/Header';
 import Profile from '../../components/Profile/Profile';
 
-function ProfilePage() {
+function ProfilePage({
+    isLoggedIn,
+    isFormSubmitting,
+    handleSignOut,
+    handleUpdateUserInfo,
+}) {
     return (
         <>
             <Header
-                isLoggedIn='true'
+                isLoggedIn={isLoggedIn}
             />
             <main>
-                <Profile />
+                <Profile
+                    isFormSubmitting={isFormSubmitting}
+                    handleUpdateUserInfo={handleUpdateUserInfo}
+                    handleSignOut={handleSignOut}
+                />
             </main>
         </>
     );
 }
-
 export default ProfilePage;
