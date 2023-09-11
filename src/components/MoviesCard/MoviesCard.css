@@ -51,16 +51,20 @@
         height: 262px;
         gap: 15px;
     }
+
     .movie-card__image {
         height: 190px;
     }
+
     .movie-card__title {
         margin: 0;
     }
+
     .movie-card__name {
         margin: 0;
         font-size: 13px;
     }
+
     .movie-card__duration {
         margin: 0;
     }
@@ -71,15 +75,19 @@
         height: 237px;
         gap: 10px;
     }
+
     .movie-card__image {
         height: 168px;
     }
+
     .movie-card__title {
         padding: 0 14px;
     }
+
     .movie-card__name {
         font-size: 12px;
     }
+
     .movie-card__duration {
         font-size: 10px;
         padding: 0 14px;

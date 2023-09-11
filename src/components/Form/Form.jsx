@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Form.css';
 import logo from '../../images/logo.svg';
-
 import { EMAIL_PATTERN } from "../../utils/constants";
 
 function Form({
@@ -16,6 +15,7 @@ function Form({
     enteredValues,
     errors,
     onSubmit,
+    isDisabled,
 }) {
 
     const currentPath = useLocation().pathname;
@@ -85,7 +85,7 @@ function Form({
                 <button
                     type='submit'
                     className='form__button'
-                // disabled={isDisabled ? true : false}
+                    disabled={isDisabled ? true : false}
                 >
                     {buttonText}
                 </button>

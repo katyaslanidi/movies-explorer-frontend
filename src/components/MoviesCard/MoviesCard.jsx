@@ -2,6 +2,7 @@ import React from 'react';
 import './MoviesCard.css';
 import CardButton from '../CardButton/CardButton';
 import { durationConverter } from "../../utils/filter";
+
 function MoviesCard({
     saved,
     movie,

@@ -83,7 +83,7 @@
 
 .form__input-error {
     width: 396px;
-    margin-top: 4px;    
+    margin-top: 4px;
     color: #EE3465;
 }
 
@@ -142,28 +142,35 @@
     .form {
         padding: 56px 30px;
     }
+
     .form__logo {
         padding: 0 141px 10px;
     }
+
     .form__title {
         width: 100%;
         text-align: center;
         padding-bottom: 40px;
     }
+
     .form__container {
         width: 100%;
     }
+
     .form__label {
         width: 260px;
     }
+
     .form__input-error {
         width: 260px;
     }
+
     .form__button {
         width: 100%;
         margin-top: 90px;
         font-size: 12px;
     }
+
     .form__redirect {
         width: 100%;
         text-align: center;

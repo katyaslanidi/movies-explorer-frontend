@@ -1,11 +1,14 @@
 import React from 'react';
 import Form from '../../components/Form/Form';
 import useForm from '../../hooks/useForm';
+
 function Register({
     handleRegistration,
     isLoading,
 }) {
+
     const { enteredValues, errors, handleChangeInput, isFormValid } = useForm();
+
     function handleFormSubmit(event) {
         event.preventDefault();
         handleRegistration({
@@ -14,6 +17,7 @@ function Register({
             password: enteredValues.password,
         });
     }
+
     return (
         <main>
             <Form
@@ -27,7 +31,7 @@ function Register({
                 enteredValues={enteredValues}
                 errors={errors}
                 onSubmit={handleFormSubmit}
-                // isDisabled={!isFormValid}
+                isDisabled={!isFormValid}
                 isLoading={isLoading}
             />
         </main>

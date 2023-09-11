@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import './SearchForm.css';
+
 function SearchForm({
     handleSearchMoviesFilms,
     handleShortFilmToggle,
     isShortFilm,
 }) {
+
     const [isQueryError, setIsQueryError] = useState(false);
     const [query, setQuery] = useState("");
     const location = useLocation();
     const handleChangeInputQuery = (e) => {
         setQuery(e.target.value);
     }
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
         if (query.trim().length === 0) {
@@ -21,6 +24,7 @@ function SearchForm({
             handleSearchMoviesFilms(query);
         }
     }
+
     useEffect(() => {
         if (
             location.pathname === "/movies" &&
@@ -30,6 +34,7 @@ function SearchForm({
             setQuery(localQuery);
         }
     }, [location]);
+
     return (
         <section className='search-form'>
             <form className='search-form__form' name='search-form' onSubmit={handleFormSubmit}>

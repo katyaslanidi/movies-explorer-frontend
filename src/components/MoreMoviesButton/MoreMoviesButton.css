@@ -32,13 +32,13 @@
 }
 
 @media screen and (max-width: 1140px) {
-    .more-movies{
+    .more-movies {
         padding: 35px 30px;
     }
 }
 
 @media screen and (max-width: 767px) {
-    .more-movies{
+    .more-movies {
         padding: 0 10px;
     }
 }

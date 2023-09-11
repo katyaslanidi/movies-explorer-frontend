@@ -1,6 +1,5 @@
 import React, { useEffect, useContext, } from "react";
 import './Profile.css';
-
 import useForm from '../../hooks/useForm';
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { EMAIL_PATTERN } from "../../utils/constants";
@@ -82,7 +81,6 @@ function Profile({
                 <button
                     type='submit'
                     className='profile__button'
-                    // disabled={!isFormValid ? true : false}
                     disabled={
                         !isFormValid ||
                         isFormSubmitting ||

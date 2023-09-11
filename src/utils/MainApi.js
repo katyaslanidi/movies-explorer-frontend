@@ -1,10 +1,12 @@
 const BASE_URL = "https://api.katyaslanidi.movies.nomoreparties.co";
+
 export const checkResponse = (res) => {
     if (res.ok) {
         return res.json();
     }
     return Promise.reject(`Error: ${res.status}`);
 };
+
 //авторизация
 export const login = ({ email, password }) => {
     return fetch(`${BASE_URL}/signin`, {
@@ -39,6 +41,7 @@ export const checkToken = (jwt) => {
         },
     }).then((res) => checkResponse(res));
 };
+
 //получение данных пользователя
 export const getMyUser = () => {
     return fetch(`${BASE_URL}/users/me`, {
@@ -49,6 +52,7 @@ export const getMyUser = () => {
         },
     }).then((res) => checkResponse(res));
 };
+
 //обновление данных пользователя
 export const updateUserInfo = (data) => {
     return fetch(`${BASE_URL}/users/me`, {
@@ -63,6 +67,7 @@ export const updateUserInfo = (data) => {
         }),
     }).then((res) => checkResponse(res));
 };
+
 //получение фильмов
 export const getMovies = () => {
     return fetch(`${BASE_URL}/movies`, {
@@ -73,6 +78,7 @@ export const getMovies = () => {
         },
     }).then((res) => checkResponse(res));
 };
+
 //сохранение фильма
 export const createMovie = (data) => {
     return fetch(`${BASE_URL}/movies`, {
@@ -96,6 +102,7 @@ export const createMovie = (data) => {
         }),
     }).then((res) => checkResponse(res));
 };
+
 //удалить фильм
 export const deleteMovie = (id) => {
     return fetch(`${BASE_URL}/movies/${id}`, {

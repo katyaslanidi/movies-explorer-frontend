@@ -4,6 +4,7 @@ import './OverflowMoviesNav.css';
 import accountIcon from '../../images/account-icon.svg';
 
 function OverflowMoviesNav({ isActive, onClick }) {
+    
     const currentPath = useLocation().pathname;
 
     return (

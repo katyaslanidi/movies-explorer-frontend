@@ -11,24 +11,21 @@ import NotFound from '../../pages/NotFound/NotFound';
 import * as api from '../../utils/MainApi';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+
 function App() {
+
   const location = useLocation();
   const navigate = useNavigate();
   const path = location.pathname;
+
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const [isAuthOk, setIsAuthOk] = useState(false);
-
   const [isFormSubmitting, setIsFormSubmitting] = useState(false);
-
   const [currentUser, setCurrentUser] = useState({});
-
   const [savedMovies, setSavedMovies] = useState([]);
-
   const [isUpdate, setIsUpdate] = useState(false);
 
-  //проверка токена в лок.хранилище
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
@@ -91,14 +88,7 @@ function App() {
     localStorage.clear();
     navigate('/');
   }
-  //проверка ошибки авторизации
-  // const handleUnauthorisedErr = (err) => {
-  //   if (err === 'Error: 401') {
-  //     handleSignOut();
-  //   }
-  // }
 
-  //получение инф о пользователе
   useEffect(() => {
     if (isLoggedIn) {
       api
@@ -120,7 +110,6 @@ function App() {
     }
   }, [isLoggedIn, navigate]);
 
-  //обновление данных пользователя
   const handleUpdateUserInfo = (newData) => {
     setIsFormSubmitting(true);
     api
@@ -132,13 +121,12 @@ function App() {
       .catch((err) => {
         setIsUpdate(false);
         console.log(err);
-        // handleUnauthorisedErr(err);
       })
       .finally(() => {
         setIsFormSubmitting(false);
       })
   }
-  
+
   const handleSaveMovie = (movie) => {
     api
       .createMovie(movie)
@@ -164,6 +152,7 @@ function App() {
         console.log(err);
       });
   }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
@@ -226,4 +215,5 @@ function App() {
     </CurrentUserContext.Provider>
   );
 }
+
 export default App;
