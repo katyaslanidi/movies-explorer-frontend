@@ -44,6 +44,7 @@
     min-height: 335px;
     margin: 0;
     padding: 0;
+    width: 396px;
 }
 
 .form__label {
@@ -55,6 +56,7 @@
     font-weight: 200;
     margin-bottom: 20px;
     height: 68px;
+    max-width: 396px;
 }
 
 .form__input {
@@ -77,14 +79,12 @@
     border: 1px solid #4285F4;
 }
 
-.form__input_error {
-    color: #EE3465;
-}
-
 .form__input-error {
-    width: 396px;
+    max-width: 396px;
     margin-top: 4px;
+    /* padding-bottom: 10px; */
     color: #EE3465;
+    font-size: 13px;
 }
 
 .form__button {

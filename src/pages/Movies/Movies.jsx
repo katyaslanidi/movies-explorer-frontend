@@ -19,7 +19,7 @@ function Movies({
     const [isReqError, setisReqError] = useState(false);
     const [isNotFound, setIsNotFound] = useState(false);
     const [filteredMovies, setFilteredMovies] = useState([]);
-    
+
     const handleUpdateFilteredMovies = (movies, query, short) => {
         const moviesCardList = filterMovies(movies, query, short);
         setInitialCardsMovies(moviesCardList);
@@ -115,6 +115,7 @@ function Movies({
                     savedMovies={savedMovies}
                     handleSaveMovie={handleSaveMovie}
                     handleDeleteMovie={handleDeleteMovie}
+                    isLoading={isLoading}
                 />
             </main>
             <Footer />

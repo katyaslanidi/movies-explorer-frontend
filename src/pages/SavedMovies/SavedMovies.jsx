@@ -30,7 +30,7 @@ function SavedMovies({
             isShortFilm ? filterDuration(moviesCardList) : moviesCardList
         );
     }, [savedMovies, isShortFilm, searchQuery]);
-    
+
     useEffect(() => {
         if (filteredMovies.length === 0) {
             setIsNotFound(true);

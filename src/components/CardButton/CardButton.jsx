@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import './CardButton.css';
 
 function CardButton(props) {
-    
+
     const currentPath = useLocation().pathname;
 
     const cardLikeButtonClassName = `${props.saved

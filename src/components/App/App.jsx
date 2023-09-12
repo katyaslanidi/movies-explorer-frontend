@@ -11,6 +11,7 @@ import NotFound from '../../pages/NotFound/NotFound';
 import * as api from '../../utils/MainApi';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import Preloader from '../Preloader/Preloader';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
+      setIsLoading(true);
       api
         .checkToken(jwt)
         .then((res) => {
@@ -40,6 +42,9 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
         })
     }
   }, []);
@@ -154,65 +159,69 @@ function App() {
   }
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <div className='page'>
-        <Routes>
-          <Route path='/' element={
-            <Main
-              isLoggedIn={isLoggedIn}
+    <div className='page'>
+      {isLoading ? (
+        <Preloader isPreloaderLoading={isLoading} position="main" />
+      ) : (
+        <CurrentUserContext.Provider value={currentUser}>
+          <Routes>
+            <Route path='/' element={
+              <Main
+                isLoggedIn={isLoggedIn}
+              />
+            }
             />
-          }
-          />
-          <Route path='/movies' element={
-            <ProtectedRoute
-              Component={Movies}
-              path='/movies'
-              savedMovies={savedMovies}
-              isLoggedIn={isLoggedIn}
-              handleDeleteMovie={handleDeleteMovie}
-              handleSaveMovie={handleSaveMovie}
+            <Route path='/movies' element={
+              <ProtectedRoute
+                Component={Movies}
+                path='/movies'
+                savedMovies={savedMovies}
+                isLoggedIn={isLoggedIn}
+                handleDeleteMovie={handleDeleteMovie}
+                handleSaveMovie={handleSaveMovie}
+              />
+            }
             />
-          }
-          />
-          <Route path='/saved-movies' element={
-            <ProtectedRoute
-              Component={SavedMovies}
-              path='/saved-movies'
-              isLoggedIn={isLoggedIn}
-              savedMovies={savedMovies}
-              handleDeleteMovie={handleDeleteMovie}
+            <Route path='/saved-movies' element={
+              <ProtectedRoute
+                Component={SavedMovies}
+                path='/saved-movies'
+                isLoggedIn={isLoggedIn}
+                savedMovies={savedMovies}
+                handleDeleteMovie={handleDeleteMovie}
+              />
+            }
             />
-          }
-          />
-          <Route path='/profile' element={
-            <ProtectedRoute
-              Component={ProfilePage}
-              path='/profile'
-              isLoggedIn={isLoggedIn}
-              isFormSubmitting={isFormSubmitting}
-              handleSignOut={handleSignOut}
-              handleUpdateUserInfo={handleUpdateUserInfo}
+            <Route path='/profile' element={
+              <ProtectedRoute
+                Component={ProfilePage}
+                path='/profile'
+                isLoggedIn={isLoggedIn}
+                isFormSubmitting={isFormSubmitting}
+                handleSignOut={handleSignOut}
+                handleUpdateUserInfo={handleUpdateUserInfo}
+              />
+            }
             />
-          }
-          />
-          <Route path='/signup' element={
-            <Register
-              handleRegistration={handleRegistration}
-              isLoading={isLoading}
+            <Route path='/signup' element={
+              <Register
+                handleRegistration={handleRegistration}
+                isLoading={isLoading}
+              />
+            }
             />
-          }
-          />
-          <Route path='/signin' element={
-            <Login
-              handleLogin={handleLogin}
-              isLoading={isLoading}
+            <Route path='/signin' element={
+              <Login
+                handleLogin={handleLogin}
+                isLoading={isLoading}
+              />
+            }
             />
-          }
-          />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-      </div>
-    </CurrentUserContext.Provider>
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </CurrentUserContext.Provider>
+      )}
+    </div>
   );
 }
 

@@ -11,6 +11,7 @@ function MoviesCard({
     handleDeleteMovie,
     savedMovies,
 }) {
+
     function handleCardClick() {
         if (saved) {
             handleDeleteMovie(savedMovies.filter((m) => m.movieId === movie.id)[0]);

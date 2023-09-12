@@ -39,7 +39,6 @@
     font-style: normal;
     font-weight: 200;
     width: 410px;
-    padding-bottom: 15px;
 }
 
 .profile__input {
@@ -62,6 +61,8 @@
     width: 396px;
     margin-top: 4px;
     color: #EE3465;
+    font-size: 11px;
+    padding-bottom: 10px;
 }
 
 .profile__label_email {

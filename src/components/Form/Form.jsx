@@ -16,6 +16,7 @@ function Form({
     errors,
     onSubmit,
     isDisabled,
+    isLoading,
 }) {
 
     const currentPath = useLocation().pathname;
@@ -48,8 +49,8 @@ function Form({
                                 onChange={handleChangeInput}
                                 value={enteredValues.name || ""}
                             />
-                            <span className='form__input-error'>{errors.name}</span>
                         </label> : ''}
+                    <span className='form__input-error'>{errors.name}</span>
                     <label htmlFor='email' className='form__label'>
                         E-mail
                         <input
@@ -63,8 +64,8 @@ function Form({
                             pattern={EMAIL_PATTERN}
                             value={enteredValues.email || ""}
                         />
-                        <span className='form__input-error'>{errors.email}</span>
                     </label>
+                    <span className='form__input-error'>{errors.email}</span>
                     <label htmlFor='password' className='form__label'>
                         Пароль
                         <input
@@ -79,13 +80,13 @@ function Form({
                             onChange={handleChangeInput}
                             value={enteredValues.password || ""}
                         />
-                        <span className='form__input-error'>{errors.password}</span>
                     </label>
+                    <span className='form__input-error'>{errors.password}</span>
                 </fieldset>
                 <button
                     type='submit'
                     className='form__button'
-                    disabled={isDisabled ? true : false}
+                    disabled={isDisabled || isLoading ? true : false}
                 >
                     {buttonText}
                 </button>
