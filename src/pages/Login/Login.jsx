@@ -8,7 +8,7 @@ function Login({
     isLoading,
 }) {
 
-    const { enteredValues, errors, handleChangeInput } = useForm();
+    const { enteredValues, errors, handleChangeInput, isFormValid } = useForm();
 
     function handleFormSubmit(event) {
         event.preventDefault();
@@ -31,7 +31,7 @@ function Login({
                 enteredValues={enteredValues}
                 errors={errors}
                 onSubmit={handleFormSubmit}
-                isDisabled={isDisabled}
+                isDisabled={!isFormValid}
                 isLoading={isLoading}
             />
         </main>

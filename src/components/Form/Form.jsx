@@ -14,8 +14,8 @@ function Form({
     handleChangeInput,
     enteredValues,
     errors,
-    onSubmit,
     isDisabled,
+    onSubmit,
     isLoading,
 }) {
 
@@ -86,7 +86,7 @@ function Form({
                 <button
                     type='submit'
                     className='form__button'
-                    disabled={isDisabled || isLoading ? true : false}
+                    disabled={isLoading || isDisabled ? true : false}
                 >
                     {buttonText}
                 </button>
