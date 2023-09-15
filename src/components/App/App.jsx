@@ -49,19 +49,6 @@ function App() {
     }
   }, []);
 
-  const handleRegistration = ({ name, email, password }) => {
-    api
-      .registration({ name, email, password })
-      .then(() => {
-        setIsAuthOk(true);
-        handleLogin({ email, password });
-      })
-      .catch((err) => {
-        setIsAuthOk(false);
-        console.log(err);
-      })
-  }
-
   const handleLogin = ({ email, password }) => {
     setIsLoading(true);
     api
@@ -80,6 +67,19 @@ function App() {
       })
       .finally(() => {
         setIsLoading(false);
+      })
+  }
+
+  const handleRegistration = ({ name, email, password }) => {
+    api
+      .registration({ name, email, password })
+      .then(() => {
+        setIsAuthOk(true);
+        handleLogin({ email, password });
+      })
+      .catch((err) => {
+        setIsAuthOk(false);
+        console.log(err);
       })
   }
 

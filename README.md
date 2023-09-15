@@ -1,5 +1,9 @@
 # Frontend для дипломного проекта курса «Веб-разработчик» от «Яндекс Практикум».
 
+https://github.com/katyaslanidi/movies-explorer-frontend/pull/5
+
+https://katyaslanidi.movies.nomoredomainsicu.ru/
+
 ## Технологии:
 * HTML5
 * CCS3
