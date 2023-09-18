@@ -84,6 +84,10 @@
     opacity: 0.6;
 }
 
+.profile__button_disabled {
+    opacity: 0.6;
+}
+
 .profile__button_signout {
     color: #EE3465;
     margin-top: 16px;

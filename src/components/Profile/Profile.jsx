@@ -80,12 +80,20 @@ function Profile({
                 </fieldset>
                 <button
                     type='submit'
-                    className='profile__button'
-                    disabled={
-                        !isFormValid ||
-                        isFormSubmitting ||
-                        (currentUser.name === enteredValues.name &&
+                    className={
+                        !isFormValid 
+                        || isFormSubmitting
+                        || (currentUser.name === enteredValues.name &&
                             currentUser.email === enteredValues.email)
+                        ? 'profile__button profile__button_disabled'
+                        : 'profile__button'    
+                    }
+                    disabled={
+                        !isFormValid 
+                        || isFormSubmitting
+                        || (currentUser.name === enteredValues.name &&
+                            currentUser.email === enteredValues.email)
+                        ? true : false
                     }
                 >
                     Редактировать
