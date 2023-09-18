@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import { Route, Routes, useNavigate, useLocation, Navigate } from "react-router-dom";
 import './App.css';
 import Main from '../../pages/Main/Main';
 import Movies from '../../pages/Movies/Movies';
@@ -232,6 +232,8 @@ function App() {
             }
             />
             <Route path='/signup' element={
+              isLoggedIn ? 
+              <Navigate to='/'/> :
               <Register
                 handleRegistration={handleRegistration}
                 isLoading={isLoading}
@@ -239,6 +241,8 @@ function App() {
             }
             />
             <Route path='/signin' element={
+              isLoggedIn ? 
+              <Navigate to='/'/> :
               <Login
                 handleLogin={handleLogin}
                 isLoading={isLoading}
