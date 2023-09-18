@@ -7,6 +7,7 @@ import SavedMovies from '../../pages/SavedMovies/SavedMovies';
 import ProfilePage from '../../pages/Profile/Profile';
 import Register from '../../pages/Register/Register';
 import Login from '../../pages/Login/Login';
+import PopUp from '../PopUp/PopUp';
 import NotFound from '../../pages/NotFound/NotFound';
 import * as api from '../../utils/MainApi';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
@@ -26,6 +27,9 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
   const [isUpdate, setIsUpdate] = useState(false);
+
+  const [isPopUpOpen, setPopUpOpen] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
@@ -55,6 +59,8 @@ function App() {
       .login({ email, password })
       .then((res) => {
         if (res) {
+          setPopUpOpen(true);
+          setIsSuccess(true);
           setIsAuthOk(true);
           localStorage.setItem("jwt", res.token);
           navigate('./movies');
@@ -62,6 +68,8 @@ function App() {
         }
       })
       .catch((err) => {
+        setPopUpOpen(true);
+        setIsSuccess(false);
         setIsAuthOk(false);
         console.log(err);
       })
@@ -74,10 +82,14 @@ function App() {
     api
       .registration({ name, email, password })
       .then(() => {
+        setPopUpOpen(true);
+        setIsSuccess(true);
         setIsAuthOk(true);
         handleLogin({ email, password });
       })
       .catch((err) => {
+        setPopUpOpen(true);
+        setIsSuccess(false);
         setIsAuthOk(false);
         console.log(err);
       })
@@ -120,10 +132,14 @@ function App() {
     api
       .updateUserInfo(newData)
       .then((data) => {
+        setPopUpOpen(true);
+        setIsSuccess(true);
         setIsUpdate(true);
         setCurrentUser(data);
       })
       .catch((err) => {
+        setPopUpOpen(true);
+        setIsSuccess(false);
         setIsUpdate(false);
         console.log(err);
       })
@@ -157,6 +173,18 @@ function App() {
         console.log(err);
       });
   }
+
+    // Закрытие:
+    function closeAllPopUps() {
+      setPopUpOpen(false);
+    }
+
+    // Закрытие по оверлею:
+    function closeByOverlay(event) {
+      if (event.target === event.currentTarget) {
+        closeAllPopUps();
+      }
+    }
 
   return (
     <div className='page'>
@@ -219,6 +247,12 @@ function App() {
             />
             <Route path='*' element={<NotFound />} />
           </Routes>
+          <PopUp 
+            isOpen={isPopUpOpen}
+            onCloseOverlay={closeByOverlay}
+            isSuccess={isSuccess}
+            onClose={closeAllPopUps}
+          />
         </CurrentUserContext.Provider>
       )}
     </div>
