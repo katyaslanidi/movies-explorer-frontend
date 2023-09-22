@@ -28,7 +28,7 @@ function Movies({
         localStorage.setItem("allMovies", JSON.stringify(movies));
     }
 
-    const handleShortFilmToggle = () => {
+    const handleShortFilmToggle = () => {       
         setIsShortFilm(!isShortFilm);
         if (!isShortFilm) {
             if (filterDuration(initialCardsMovies).length === 0) {

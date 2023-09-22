@@ -11,6 +11,7 @@ function SearchForm({
     const [isQueryError, setIsQueryError] = useState(false);
     const [query, setQuery] = useState("");
     const location = useLocation();
+
     const handleChangeInputQuery = (e) => {
         setQuery(e.target.value);
     }

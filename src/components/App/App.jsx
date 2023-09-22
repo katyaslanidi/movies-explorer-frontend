@@ -174,17 +174,15 @@ function App() {
       });
   }
 
-    // Закрытие:
-    function closeAllPopUps() {
-      setPopUpOpen(false);
-    }
+  function closeAllPopUps() {
+    setPopUpOpen(false);
+  }
 
-    // Закрытие по оверлею:
-    function closeByOverlay(event) {
-      if (event.target === event.currentTarget) {
-        closeAllPopUps();
-      }
+  function closeByOverlay(event) {
+    if (event.target === event.currentTarget) {
+      closeAllPopUps();
     }
+  }
 
   return (
     <div className='page'>
@@ -232,26 +230,26 @@ function App() {
             }
             />
             <Route path='/signup' element={
-              isLoggedIn ? 
-              <Navigate to='/'/> :
-              <Register
-                handleRegistration={handleRegistration}
-                isLoading={isLoading}
-              />
+              isLoggedIn ?
+                <Navigate to='/' /> :
+                <Register
+                  handleRegistration={handleRegistration}
+                  isLoading={isLoading}
+                />
             }
             />
             <Route path='/signin' element={
-              isLoggedIn ? 
-              <Navigate to='/'/> :
-              <Login
-                handleLogin={handleLogin}
-                isLoading={isLoading}
-              />
+              isLoggedIn ?
+                <Navigate to='/' /> :
+                <Login
+                  handleLogin={handleLogin}
+                  isLoading={isLoading}
+                />
             }
             />
             <Route path='*' element={<NotFound />} />
           </Routes>
-          <PopUp 
+          <PopUp
             isOpen={isPopUpOpen}
             onCloseOverlay={closeByOverlay}
             isSuccess={isSuccess}

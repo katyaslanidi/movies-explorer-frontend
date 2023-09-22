@@ -12,7 +12,7 @@ function SavedMovies({
 }) {
 
     const [filteredMovies, setFilteredMovies] = useState(savedMovies);
-    const [isShortFilm, setisShortFilm] = useState(false);
+    const [isShortFilm, setIsShortFilm] = useState(false);
     const [isNotFound, setIsNotFound] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
 
@@ -21,7 +21,7 @@ function SavedMovies({
     }
 
     function handleShortFilmToggle() {
-        setisShortFilm(!isShortFilm);
+        setIsShortFilm(!isShortFilm);
     }
 
     useEffect(() => {
