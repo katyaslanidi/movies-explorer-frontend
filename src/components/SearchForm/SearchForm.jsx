@@ -60,6 +60,7 @@ function SearchForm({
                             className='filter-checkbox__checkbox'
                             onChange={handleShortFilmToggle}
                             checked={!isShortFilm}
+                            value={query || ""}
                         />
                         Короткометражки
                     </label>

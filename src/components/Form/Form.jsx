@@ -78,7 +78,7 @@ function Form({
                             placeholder='••••••••••••••'
                             className='form__input'
                             onChange={handleChangeInput}
-                            value={enteredValues.password || ""}
+                            value={enteredValues.password}
                         />
                     </label>
                     <span className='form__input-error'>{errors.password}</span>
