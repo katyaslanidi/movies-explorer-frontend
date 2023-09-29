@@ -7,119 +7,146 @@ import { filterMovies, filterDuration } from "../../utils/filter";
 import * as movies from "../../utils/MoviesApi";
 
 function SavedMovies({
-    isLoggedIn,
-    handleDeleteMovie,
-    savedMovies,
+  isLoggedIn,
+  handleDeleteMovie,
+  savedMovies,
 }) {
+  const [filteredMovies, setFilteredMovies] = useState(savedMovies);
+  const [isShortFilm, setIsShortFilm] = useState(false);
+  const [isNotFound, setIsNotFound] = useState(false);
+  const [isReqError, setisReqError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
-    const [filteredMovies, setFilteredMovies] = useState(savedMovies);
-    const [isShortFilm, setIsShortFilm] = useState(false);
-    const [isNotFound, setIsNotFound] = useState(false);
-    const [isReqError, setisReqError] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [searchQuery, setSearchQuery] = useState("");
-    const [initialCardsMovies, setInitialCardsMovies] = useState([]);
+  const handleUpdateFilteredMovies = (movies, query, short) => {
+    const moviesCardList = filterMovies(movies, query, short);
 
-    const handleUpdateFilteredMovies = (movies, query, short) => {
+    setFilteredMovies(moviesCardList);
+    setFilteredMovies(short ? filterDuration(moviesCardList) : moviesCardList);
 
-        const moviesCardList = filterMovies(movies, query, short);
+    localStorage.setItem("movies", JSON.stringify(moviesCardList));
+    localStorage.setItem("allMovies", JSON.stringify(movies));
+    setSearchQuery(query);
+  }
 
-        setInitialCardsMovies(moviesCardList);
-        setFilteredMovies(short ? filterDuration(moviesCardList) : moviesCardList);
-        
-        localStorage.setItem("movies", JSON.stringify(moviesCardList));
-        localStorage.setItem("allMovies", JSON.stringify(movies));
-      }
+  const handleShortFilmToggle = (query) => {
+    setIsShortFilm(isShortFilm);
+    localStorage.setItem("movieSearch", query);
+    localStorage.setItem("shortMovies", isShortFilm);
 
-    function handleSearchMoviesFilms(query) {
+    if (localStorage.getItem("allMovies")) {
+      const movies = JSON.parse(localStorage.getItem("allMovies"));
+      const moviesCardList = filterMovies(movies, query, isShortFilm);
 
-        localStorage.setItem("movieSearch", query);
-        localStorage.setItem("shortMovies", isShortFilm);
+      setFilteredMovies(isShortFilm ? filterDuration(moviesCardList) : moviesCardList);
+      setIsShortFilm(!isShortFilm);
+      setSearchQuery(query);
 
-        setSearchQuery(query);
+      localStorage.setItem("movies", JSON.stringify(moviesCardList));
 
-        if (localStorage.getItem("allMovies")) {
-          const movies = JSON.parse(localStorage.getItem("allMovies"));
-          handleUpdateFilteredMovies(movies, query, isShortFilm);
+      if (!isShortFilm) {
+        if (filterDuration(movies).length === 0) {
+          setFilteredMovies(filterDuration(movies));
         } else {
-          setIsLoading(true);
-          movies
-            .getMovies()
-            .then((cardsData) => {
-              handleUpdateFilteredMovies(cardsData, query, isShortFilm);
-              setisReqError(false);
-            })
-            .catch((err) => {
-              setisReqError(true);
-              console.log(err);
-            })
-            .finally(() => {
-              setIsLoading(false);
-            });
-        }    }
+          setFilteredMovies(filterDuration(movies));
+        }
+      } else {
+        setFilteredMovies(movies);
+      }
+    }
+    handleSearchMoviesFilms(query);
+  }
 
-    function handleShortFilmToggle() {
+  const handleSearchMoviesFilms = (query) => {
+    localStorage.setItem("movieSearch", query);
+    localStorage.setItem("shortMovies", isShortFilm);
 
-        localStorage.setItem("movieSearch", searchQuery);
-        localStorage.setItem("shortMovies", isShortFilm);
-    
-        if (localStorage.getItem("movies")) {
-          const movies = JSON.parse(localStorage.getItem("movies"));
-          const moviesCardList = filterMovies(movies, searchQuery, isShortFilm);
-    
-          setInitialCardsMovies(moviesCardList);
-          setFilteredMovies(isShortFilm ? filterDuration(moviesCardList) : moviesCardList);
-          setIsShortFilm(!isShortFilm);
-    
-          localStorage.setItem("movies", JSON.stringify(moviesCardList));
-    
-          if (!isShortFilm) {
-            if (filterDuration(movies).length === 0) {
-              setFilteredMovies(filterDuration(movies));
-            } else {
-              setFilteredMovies(filterDuration(movies));
-            }
-          } else {
-            setFilteredMovies(movies);
-          }
-        }    
+    if (localStorage.getItem("allMovies")) {
+      const movies = JSON.parse(localStorage.getItem("allMovies"));
+      handleUpdateFilteredMovies(movies, query, isShortFilm);
+    } else {
+      setIsLoading(true);
+      movies
+        .getMovies()
+        .then((cardsData) => {
+          handleUpdateFilteredMovies(cardsData, query, isShortFilm);
+          setisReqError(false);
+        })
+        .catch((err) => {
+          setisReqError(true);
+          console.log(err);
+        })
+        .finally((err) => {
+          console.log(err);
+          setIsLoading(false);
+        });
+    }
+  }
+
+  useEffect(() => {
+    const moviesCardList = filterMovies(savedMovies, searchQuery);
+
+    setFilteredMovies(
+      isShortFilm ? filterDuration(moviesCardList) : moviesCardList
+    );
+  }, [savedMovies, isShortFilm, searchQuery]);
+
+  useEffect(() => {
+    const movies = JSON.parse(localStorage.getItem("movies"));
+    setFilteredMovies(movies)
+
+    const searchMovies = localStorage.getItem("movieSearch");
+    setSearchQuery(searchMovies);
+
+    const checkbox = JSON.parse(localStorage.getItem("shortMovies"));
+    const query = localStorage.getItem("movieSearch");
+    if (checkbox === true) {
+      handleShortFilmToggle(query);
+      // setIsShortFilm(false);
+    } else if (checkbox === false) {
+      handleSearchMoviesFilms(query);
+      // setIsShortFilm(false);
     }
 
-    useEffect(() => {
-        const moviesCardList = filterMovies(savedMovies, searchQuery);
-        setFilteredMovies(
-            isShortFilm ? filterDuration(moviesCardList) : moviesCardList
-        );
-    }, [savedMovies, isShortFilm, searchQuery]);
+    if (localStorage.getItem("shortMovies")) {
+      setIsShortFilm(false);
+    } else {
+      setIsShortFilm(true);
+    }
+  }, []);
 
-    useEffect(() => {
-        if (filteredMovies.length === 0) {
-            setIsNotFound(true);
-        } else {
-            setIsNotFound(false);
-        }
-    }, [filteredMovies]);
+  useEffect(() => {
+    if (localStorage.getItem("movieSearch")) {
+      if (filteredMovies.length === 0) {
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    } else {
+      setIsNotFound(false);
+    }
+  }, [filteredMovies]);
 
-    return (
-        <>
-            <Header
-                isLoggedIn={isLoggedIn}
-            />
-            <main>
-                <SearchForm
-                    handleSearchMoviesFilms={handleSearchMoviesFilms}
-                    handleShortFilmToggle={handleShortFilmToggle}
-                    isShortFilm={isShortFilm}
-                />
-                <MoviesCardList
-                    movies={filteredMovies}
-                    isSavedMovies={true}
-                    savedMovies={savedMovies}
-                    handleDeleteMovie={handleDeleteMovie}
-                />
-            </main>
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <Header
+        isLoggedIn={isLoggedIn}
+      />
+      <main>
+        <SearchForm
+          handleSearchMoviesFilms={handleSearchMoviesFilms}
+          handleShortFilmToggle={handleShortFilmToggle}
+          isShortFilm={!isShortFilm}
+        />
+        <MoviesCardList
+          movies={filteredMovies}
+          isSavedMovies={true}
+          savedMovies={savedMovies}
+          handleDeleteMovie={handleDeleteMovie}
+        />
+      </main>
+      <Footer />
+    </>
+  );
 }
 export default SavedMovies;
