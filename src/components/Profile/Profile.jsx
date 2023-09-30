@@ -60,7 +60,7 @@ function Profile({
                             disabled={isFormSubmitting}
                         />
                     </label>
-                    <span class='profile__input-error'>{errors.name}</span>
+                    <span className='profile__input-error'>{errors.name}</span>
                     <label htmlFor='email' className='profile__label profile__label_email'>
                         E-mail
                         <input
@@ -76,7 +76,7 @@ function Profile({
                             pattern={EMAIL_PATTERN}
                         />
                     </label>
-                    <span class='profile__input-error'>{errors.email}</span>
+                    <span className='profile__input-error'>{errors.email}</span>
                 </fieldset>
                 <button
                     type='submit'

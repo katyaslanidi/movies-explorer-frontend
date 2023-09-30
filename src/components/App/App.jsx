@@ -100,7 +100,7 @@ function App() {
     localStorage.removeItem("jwt");
     localStorage.removeItem("movies");
     localStorage.removeItem("movieSearch");
-    localStorage.removeItem("shortMovies");
+    localStorage.removeItem("notShortMovies");
     localStorage.removeItem("allMovies");
     localStorage.clear();
     navigate('/');
