@@ -5,12 +5,14 @@ import MoviesCardList from '../../components/MoviesCardList/MoviesCardList';
 import Footer from '../../components/Footer/Footer';
 import { filterMovies, filterDuration } from "../../utils/filter";
 import * as movies from "../../utils/MoviesApi";
+import * as api from '../../utils/MainApi';
 
 function SavedMovies({
   isLoggedIn,
   handleDeleteMovie,
   savedMovies,
 }) {
+
   const [filteredMovies, setFilteredMovies] = useState(savedMovies);
   const [isShortFilm, setIsShortFilm] = useState(false);
   const [isNotFound, setIsNotFound] = useState(false);
@@ -25,17 +27,17 @@ function SavedMovies({
     setFilteredMovies(short ? filterDuration(moviesCardList) : moviesCardList);
 
     localStorage.setItem("movies", JSON.stringify(moviesCardList));
-    localStorage.setItem("allMovies", JSON.stringify(movies));
+    // localStorage.setItem("allMovies", JSON.stringify(movies));
     setSearchQuery(query);
   }
 
   const handleShortFilmToggle = (query) => {
     setIsShortFilm(isShortFilm);
     localStorage.setItem("movieSearch", query);
-    localStorage.setItem("shortMovies", isShortFilm);
+    localStorage.setItem("shortMovies", !isShortFilm);
 
-    if (localStorage.getItem("allMovies")) {
-      const movies = JSON.parse(localStorage.getItem("allMovies"));
+    if (localStorage.getItem("movies")) {
+      const movies = JSON.parse(localStorage.getItem("movies"));
       const moviesCardList = filterMovies(movies, query, isShortFilm);
 
       setFilteredMovies(isShortFilm ? filterDuration(moviesCardList) : moviesCardList);
@@ -59,10 +61,10 @@ function SavedMovies({
 
   const handleSearchMoviesFilms = (query) => {
     localStorage.setItem("movieSearch", query);
-    localStorage.setItem("shortMovies", isShortFilm);
-
-    if (localStorage.getItem("allMovies")) {
-      const movies = JSON.parse(localStorage.getItem("allMovies"));
+    localStorage.setItem("shortMovies", !isShortFilm);
+    
+    if (localStorage.getItem("movies")) {
+      const movies = JSON.parse(localStorage.getItem("movies"));
       handleUpdateFilteredMovies(movies, query, isShortFilm);
     } else {
       setIsLoading(true);
@@ -91,29 +93,29 @@ function SavedMovies({
     );
   }, [savedMovies, isShortFilm, searchQuery]);
 
-  useEffect(() => {
-    const movies = JSON.parse(localStorage.getItem("movies"));
-    setFilteredMovies(movies)
+  // useEffect(() => {
+  //   // const movies = localStorage.getItem("allMovies");
+  //   // setFilteredMovies(movies)
 
-    const searchMovies = localStorage.getItem("movieSearch");
-    setSearchQuery(searchMovies);
+  //   const searchMovies = localStorage.getItem("movieSearch");
+  //   setSearchQuery(searchMovies);
 
-    const checkbox = JSON.parse(localStorage.getItem("shortMovies"));
-    const query = localStorage.getItem("movieSearch");
-    if (checkbox === true) {
-      handleShortFilmToggle(query);
-      // setIsShortFilm(false);
-    } else if (checkbox === false) {
-      handleSearchMoviesFilms(query);
-      // setIsShortFilm(false);
-    }
+  //   const checkbox = JSON.parse(localStorage.getItem("shortMovies"));
+  //   const query = localStorage.getItem("movieSearch");
+  //   if (checkbox === true) {
+  //     handleShortFilmToggle(query);
+  //     // setIsShortFilm(false);
+  //   } else if (checkbox === false) {
+  //     handleSearchMoviesFilms(query);
+  //     // setIsShortFilm(false);
+  //   }
 
-    if (localStorage.getItem("shortMovies")) {
-      setIsShortFilm(false);
-    } else {
-      setIsShortFilm(true);
-    }
-  }, []);
+  //   if (localStorage.getItem("shortMovies")) {
+  //     setIsShortFilm(false);
+  //   } else {
+  //     setIsShortFilm(true);
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (localStorage.getItem("movieSearch")) {

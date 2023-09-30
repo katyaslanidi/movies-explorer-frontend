@@ -67,7 +67,7 @@ function MoviesCardList({
                     {
                         movies.map(movie => (
                             <MoviesCard
-                                key={isSavedMovies ? movie._id : movie.id}
+                                key={isSavedMovies ? movie._id : movie.movieId}
                                 saved={getSavedMovieCard(savedMovies, movie)}
                                 movies={movies}
                                 movie={movie}

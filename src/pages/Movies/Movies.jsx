@@ -84,13 +84,13 @@ function Movies({
     }
   }
   // Получение короткомеражек из localStorage
-  // useEffect(() => {
-  //   if (localStorage.getItem("shortMovies") === "true") {
-  //     setIsShortFilm(true);
-  //   } else {
-  //     setIsShortFilm(false);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (localStorage.getItem("shortMovies") === "true") {
+      setIsShortFilm(true);
+    } else {
+      setIsShortFilm(false);
+    }
+  }, []);
 
   useEffect(() => {
     //выводим фильмы по запросу из local storage
@@ -101,36 +101,11 @@ function Movies({
     const query = localStorage.getItem("movieSearch");
 
     if (checkbox === true) {
-      handleShortFilmToggle(query || ""); // показываем короткометражки
-      setIsShortFilm(true);
+      handleShortFilmToggle(query); // показываем короткометражки
     } else if (checkbox === false) {
-      handleSearchMoviesFilms(query || ""); // показываем все фильмы
-      setIsShortFilm(false);
+      handleSearchMoviesFilms(query); // показываем все фильмы
     }
-
   }, [])
-
-  // Получение списка фильмов из localStorage
-  // useEffect(() => {
-  //   if (localStorage.getItem(JSON.stringify(movies))) {
-  //     const movies = JSON.parse(localStorage.getItem("movies"));
-  //     setInitialCardsMovies(movies);
-  //     if (localStorage.getItem("shortMovies") === "true") {
-  //       setFilteredMovies(filterDuration(movies));
-  //     } else {
-  //       setFilteredMovies(movies);
-  //     }
-  //   }
-  //   if (localStorage.getItem(JSON.stringify(movies))) {
-  //     const searchMovies = JSON.parse(localStorage.getItem("movieSearch"));
-  //     setQuery(searchMovies);
-  //   }
-  //   if (localStorage.getItem("shortMovies")) {
-  //     setIsShortFilm(true);
-  //   } else {
-  //     setIsShortFilm(false);
-  //   }
-  // }, []);
 
   // Проверка, были ли найдены фильмы по запросу
   useEffect(() => {
