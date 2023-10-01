@@ -12,7 +12,7 @@ function Movies({
   handleDeleteMovie,
   handleSaveMovie,
 }) {
-  
+
   const [isLoading, setIsLoading] = useState(false);
   const [initialCardsMovies, setInitialCardsMovies] = useState([]);
   const [isNotShortFilm, setIsNotShortFilm] = useState(false);

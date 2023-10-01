@@ -34,8 +34,7 @@ function SearchForm({
     useEffect(() => {
         if (
             location.pathname === "/movies" &&
-            localStorage.getItem("movieSearch") &&
-            localStorage.getItem("notShortMovies")
+            localStorage.getItem("movieSearch")
         ) {
             const localQuery = localStorage.getItem("movieSearch");
             setQuery(localQuery);
