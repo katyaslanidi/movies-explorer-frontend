@@ -64,19 +64,23 @@
         padding: 15px 10px 0 10px;
         min-height: 175px;
     }
+
     .footer__title {
         font-size: 12px;
     }
+
     .footer__container {
         font-size: 12px;
         flex-direction: column-reverse;
     }
+
     .footer__links {
         flex-direction: column;
         align-items: center;
         margin-top: 20px;
         gap: 12px;
     }
+
     .footer__year {
         margin-top: 20px;
     }

@@ -1,6 +1,5 @@
 import React, { useEffect, useContext, } from "react";
 import './Profile.css';
-
 import useForm from '../../hooks/useForm';
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { EMAIL_PATTERN } from "../../utils/constants";
@@ -25,15 +24,15 @@ function Profile({
         setEnteredInputValues({
             ...enteredValues,
             name: currentUser.name || "",
-            email : currentUser.email || "",
+            email: currentUser.email || "",
         });
     }, [currentUser, setEnteredInputValues]);
 
     return (
         <section className='profile'>
             <h1 className='profile__title'>Привет, {currentUser.name}!</h1>
-            <form 
-                name='profile' 
+            <form
+                name='profile'
                 className='profile__form'
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -61,7 +60,7 @@ function Profile({
                             disabled={isFormSubmitting}
                         />
                     </label>
-                    <span class='profile__input-error'>{errors.name}</span>
+                    <span className='profile__input-error'>{errors.name}</span>
                     <label htmlFor='email' className='profile__label profile__label_email'>
                         E-mail
                         <input
@@ -77,21 +76,29 @@ function Profile({
                             pattern={EMAIL_PATTERN}
                         />
                     </label>
-                    <span class='profile__input-error'>{errors.email}</span>
+                    <span className='profile__input-error'>{errors.email}</span>
                 </fieldset>
-                <button 
-                    type='submit' 
-                    className='profile__button'
-                    disabled={
-                        !isFormValid ||
-                        isFormSubmitting ||
-                        (currentUser.name === enteredValues.name &&
+                <button
+                    type='submit'
+                    className={
+                        !isFormValid 
+                        || isFormSubmitting
+                        || (currentUser.name === enteredValues.name &&
                             currentUser.email === enteredValues.email)
+                        ? 'profile__button profile__button_disabled'
+                        : 'profile__button'    
+                    }
+                    disabled={
+                        !isFormValid 
+                        || isFormSubmitting
+                        || (currentUser.name === enteredValues.name &&
+                            currentUser.email === enteredValues.email)
+                        ? true : false
                     }
                 >
                     Редактировать
                 </button>
-                <button 
+                <button
                     className='profile__button profile__button_signout'
                     onClick={handleSignOut}
                 >
@@ -101,5 +108,4 @@ function Profile({
         </section>
     );
 }
-
 export default Profile;

@@ -79,6 +79,7 @@
         align-items: center;
         min-height: 240px;
     }
+
     .search-form__container {
         margin-top: 49px;
     }
@@ -88,10 +89,12 @@
     .search-form {
         padding: 0 14px;
     }
+
     .search-form__container {
         margin-top: 49px;
-        max-width: 284px;    
+        max-width: 284px;
     }
+
     .search-form__input {
         font-size: 11px;
     }
@@ -157,6 +160,7 @@
     .filter-checkbox {
         margin-top: 40px;
     }
+
     .filter-checkbox__switch {
         margin-bottom: 20px;
     }

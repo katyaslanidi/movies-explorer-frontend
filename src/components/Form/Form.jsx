@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Form.css';
 import logo from '../../images/logo.svg';
-
 import { EMAIL_PATTERN } from "../../utils/constants";
 
 function Form({
@@ -15,7 +14,9 @@ function Form({
     handleChangeInput,
     enteredValues,
     errors,
+    isDisabled,
     onSubmit,
+    isLoading,
 }) {
 
     const currentPath = useLocation().pathname;
@@ -48,8 +49,8 @@ function Form({
                                 onChange={handleChangeInput}
                                 value={enteredValues.name || ""}
                             />
-                            <span className='form__input-error'>{errors.name}</span>
                         </label> : ''}
+                    <span className='form__input-error'>{errors.name}</span>
                     <label htmlFor='email' className='form__label'>
                         E-mail
                         <input
@@ -63,8 +64,8 @@ function Form({
                             pattern={EMAIL_PATTERN}
                             value={enteredValues.email || ""}
                         />
-                        <span className='form__input-error'>{errors.email}</span>
                     </label>
+                    <span className='form__input-error'>{errors.email}</span>
                     <label htmlFor='password' className='form__label'>
                         Пароль
                         <input
@@ -77,14 +78,15 @@ function Form({
                             placeholder='••••••••••••••'
                             className='form__input'
                             onChange={handleChangeInput}
-                            value={enteredValues.password || ""}
+                            value={enteredValues.password}
                         />
-                        <span className='form__input-error'>{errors.password}</span>
                     </label>
+                    <span className='form__input-error'>{errors.password}</span>
                 </fieldset>
                 <button
                     type='submit'
                     className='form__button'
+                    disabled={isLoading || isDisabled ? true : false}
                 >
                     {buttonText}
                 </button>
@@ -95,5 +97,4 @@ function Form({
         </section>
     );
 }
-
 export default Form;

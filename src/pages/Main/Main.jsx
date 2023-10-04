@@ -26,5 +26,4 @@ function Main({ isLoggedIn }) {
         </>
     );
 }
-
 export default Main;

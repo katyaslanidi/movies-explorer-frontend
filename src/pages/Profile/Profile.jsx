@@ -8,7 +8,6 @@ function ProfilePage({
     handleSignOut,
     handleUpdateUserInfo,
 }) {
-
     return (
         <>
             <Header
@@ -24,5 +23,4 @@ function ProfilePage({
         </>
     );
 }
-
 export default ProfilePage;

@@ -10,12 +10,12 @@ function Register({
     const { enteredValues, errors, handleChangeInput, isFormValid } = useForm();
 
     function handleFormSubmit(event) {
-      event.preventDefault();
-      handleRegistration({
-        name: enteredValues.name,
-        email: enteredValues.email,
-        password: enteredValues.password,
-      });
+        event.preventDefault();
+        handleRegistration({
+            name: enteredValues.name,
+            email: enteredValues.email,
+            password: enteredValues.password,
+        });
     }
 
     return (
@@ -31,11 +31,10 @@ function Register({
                 enteredValues={enteredValues}
                 errors={errors}
                 onSubmit={handleFormSubmit}
-                // isDisabled={!isFormValid}
+                isDisabled={!isFormValid}
                 isLoading={isLoading}
             />
         </main>
     );
 }
-
 export default Register;

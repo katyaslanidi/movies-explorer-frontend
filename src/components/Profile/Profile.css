@@ -39,7 +39,6 @@
     font-style: normal;
     font-weight: 200;
     width: 410px;
-    padding-bottom: 15px;
 }
 
 .profile__input {
@@ -60,8 +59,10 @@
 
 .profile__input-error {
     width: 396px;
-    margin-top: 4px;    
+    margin-top: 4px;
     color: #EE3465;
+    font-size: 11px;
+    padding-bottom: 10px;
 }
 
 .profile__label_email {
@@ -83,6 +84,10 @@
     opacity: 0.6;
 }
 
+.profile__button_disabled {
+    opacity: 0.6;
+}
+
 .profile__button_signout {
     color: #EE3465;
     margin-top: 16px;
@@ -94,10 +99,12 @@
     .profile {
         padding-top: 218px;
     }
+
     .profile__item {
         margin-top: 70px;
         margin-bottom: 185px;
     }
+
     .profile__input-error {
         width: 260px;
     }
@@ -107,10 +114,12 @@
     .profile {
         padding-top: 50px;
     }
+
     .profile__item {
         margin-top: 56px;
         margin-bottom: 354px;
     }
+
     .profile__label {
         width: 260px;
     }

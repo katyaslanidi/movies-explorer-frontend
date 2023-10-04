@@ -80,34 +80,40 @@
 }
 
 @media screen and (max-width: 768px) {
-    .about-me  {
+    .about-me {
         padding-left: 50px;
         padding-top: 0;
         padding-right: 50px;
         min-height: 513px;
     }
+
     .about-me__title {
         margin: 0;
         padding-top: 90px;
     }
+
     .about-me__content {
         margin-top: 65px;
     }
+
     .about-me__name {
         font-size: 40px;
         line-height: 40px;
     }
+
     .about-me__profession {
         font-size: 12px;
         line-height: 18px;
         margin-bottom: 20px;
     }
+
     .about-me__text {
         font-size: 12px;
         line-height: 18px;
         width: 364px;
         margin-bottom: 70px;
     }
+
     .about-me__image {
         margin-top: 66px;
     }
@@ -117,29 +123,36 @@
     .about-me {
         padding: 0 14px;
     }
+
     .about-me__title {
         font-size: 18px;
         padding-top: 60px;
     }
+
     .about-me__container {
         max-width: 292px;
         flex-direction: column;
     }
+
     .about-me__image {
         margin-top: 60px;
         width: 292px;
         height: 352px;
     }
+
     .about-me__content {
         margin-top: 40px;
     }
+
     .about-me__name {
         font-size: 30px;
     }
+
     .about-me__profession {
         font-size: 11px;
         line-height: 16px;
     }
+
     .about-me__text {
         font-size: 11px;
         line-height: 16px;

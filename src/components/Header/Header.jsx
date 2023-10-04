@@ -7,7 +7,6 @@ import BurgerButton from '../BurgerButton/BurgerButton';
 import OverflowMoviesNav from '../OverflowMoviesNav/OverflowMoviesNav';
 
 function Header({ isLoggedIn }) {
-
     const currentPath = useLocation().pathname;
 
     const [isOverflowActive, setIsOverflowActive] = useState(false);

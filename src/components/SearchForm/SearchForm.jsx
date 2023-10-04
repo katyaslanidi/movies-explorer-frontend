@@ -16,6 +16,11 @@ function SearchForm({
         setQuery(e.target.value);
     }
 
+    const setShortFilmToggle = () => {
+        setQuery(query);
+        handleShortFilmToggle(query);
+    }
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
         if (query.trim().length === 0) {
@@ -33,9 +38,12 @@ function SearchForm({
         ) {
             const localQuery = localStorage.getItem("movieSearch");
             setQuery(localQuery);
+         } else {
+            setQuery('')
         }
     }, [location]);
 
+    
     return (
         <section className='search-form'>
             <form className='search-form__form' name='search-form' onSubmit={handleFormSubmit}>
@@ -58,8 +66,8 @@ function SearchForm({
                             type='checkbox'
                             id='checkbox'
                             className='filter-checkbox__checkbox'
-                            onChange={handleShortFilmToggle}
-                            checked={!isShortFilm}
+                            onChange={setShortFilmToggle}
+                            checked={isShortFilm}
                         />
                         Короткометражки
                     </label>
@@ -68,5 +76,4 @@ function SearchForm({
         </section>
     );
 }
-
 export default SearchForm;

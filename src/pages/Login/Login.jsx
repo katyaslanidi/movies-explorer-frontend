@@ -1,8 +1,6 @@
 import React from 'react';
 import Form from '../../components/Form/Form';
-
 import useForm from '../../hooks/useForm';
-import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 function Login({
     handleLogin,
@@ -12,11 +10,11 @@ function Login({
     const { enteredValues, errors, handleChangeInput, isFormValid } = useForm();
 
     function handleFormSubmit(event) {
-      event.preventDefault();
-      handleLogin({
-        email: enteredValues.email,
-        password: enteredValues.password,
-      });
+        event.preventDefault();
+        handleLogin({
+            email: enteredValues.email,
+            password: enteredValues.password,
+        });
     }
 
     return (
@@ -32,11 +30,10 @@ function Login({
                 enteredValues={enteredValues}
                 errors={errors}
                 onSubmit={handleFormSubmit}
-                isDisabled={isDisabled}
+                isDisabled={!isFormValid}
                 isLoading={isLoading}
             />
         </main>
     );
 }
-
 export default Login;
