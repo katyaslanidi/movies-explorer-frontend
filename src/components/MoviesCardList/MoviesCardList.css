@@ -62,10 +62,6 @@
         grid-template-columns: repeat(1, 300px);
         gap: 14px;
     }
-
-    /* .cards__item {
-        height: 237px;
-    } */
 }
 
 .more-movies {

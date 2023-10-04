@@ -84,7 +84,7 @@ function Movies({
         });
     }
   }
-  // Получение короткомеражек из localStorage
+  // получение короткомеражек из localStorage
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("notShortMovies")) === true) {
       setIsNotShortFilm(false);

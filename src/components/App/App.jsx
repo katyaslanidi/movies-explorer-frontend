@@ -62,7 +62,7 @@ function App() {
           setPopUpOpen(true);
           setIsSuccess(true);
           setIsAuthOk(true);
-          localStorage.setItem("jwt", res.token);         
+          localStorage.setItem("jwt", res.token);
           navigate('./movies');
           setIsLoggedIn(true);
         }
