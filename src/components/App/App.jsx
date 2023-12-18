@@ -193,7 +193,7 @@ function App() {
           <Routes>
             <Route path='/' element={
               <Main
-                isLoggedIn={true}
+                isLoggedIn={isLoggedIn}
               />
             }
             />
@@ -202,7 +202,7 @@ function App() {
                 Component={Movies}
                 path='/movies'
                 savedMovies={savedMovies}
-                isLoggedIn={true}
+                isLoggedIn={isLoggedIn}
                 handleDeleteMovie={handleDeleteMovie}
                 handleSaveMovie={handleSaveMovie}
               />
@@ -212,7 +212,7 @@ function App() {
               <ProtectedRoute
                 Component={SavedMovies}
                 path='/saved-movies'
-                isLoggedIn={true}
+                isLoggedIn={isLoggedIn}
                 savedMovies={savedMovies}
                 handleDeleteMovie={handleDeleteMovie}
               />
@@ -222,7 +222,7 @@ function App() {
               <ProtectedRoute
                 Component={ProfilePage}
                 path='/profile'
-                isLoggedIn={true}
+                isLoggedIn={isLoggedIn}
                 isFormSubmitting={isFormSubmitting}
                 handleSignOut={handleSignOut}
                 handleUpdateUserInfo={handleUpdateUserInfo}
